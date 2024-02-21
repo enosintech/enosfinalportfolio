@@ -102,7 +102,7 @@ function AboutmePage() {
             </div>
           </div>
         </div>
-        <div className="w-full h-[100dvh] bg-black relative flex lg:flex-row-reverse flex-col overflow-x-hidden" ref={component}>
+        <div className="w-full h-[100dvh] bg-black relative flex lg:flex-row-reverse flex-col overflow-x-visible" ref={component}>
           <div className="w-[40%] h-fit absolute lg:top-20 top-[50dvh] left-8 lg:left-20 flex flex-col overflow-visible">
             <div className="w-fit h-fit pl-2 flex nohemiBlack text-white uppercase tracking-tight text-[40px] lg:text-[100px]">
                 <span>e</span>

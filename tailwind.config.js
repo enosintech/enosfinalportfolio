@@ -3,6 +3,9 @@ export default {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        "stars": "url(./assets/images/starsbg.webp)"
+      },
       keyframes: {
         bouncer : {
           "0%" : {

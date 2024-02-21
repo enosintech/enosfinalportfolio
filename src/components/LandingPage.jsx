@@ -51,7 +51,7 @@ function LandingPage() {
 
         gsap.to(".displacement2", {
           attr: {
-            r: 2200,
+            r: 3000,
           },
           scrollTrigger: {
             trigger: ".spacer",

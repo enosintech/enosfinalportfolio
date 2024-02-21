@@ -47,6 +47,24 @@
     src: url(./assets/fonts/Nohemi-Thin.ttf)
 }
 
+@keyframes redFloat {
+    100% {
+        transform: rotate(40deg) translate(50px) rotate(-40deg);
+    }
+}
+  
+@keyframes blueFloat {
+    100% {
+        transform: rotate(70deg) translate(10px) rotate(-90deg);
+    }
+}
+  
+@keyframes purpleFloat {
+    100% {
+        transform: rotate(30deg) translate(-30px) rotate(-30deg);
+    }
+}
+
 @keyframes flickerFlame {
     0% {
     transform: rotate(-1deg);
@@ -76,6 +94,20 @@
         -webkit-transform: rotate(1deg);
         -moz-transform: rotate(1deg);
     }
+}
+
+@keyframes sunshine {
+    0% {
+      box-shadow: 2px 2px 5px 20px #ffdd50;
+    }
+    100% {
+      box-shadow:  10px 10px 30px 25px #ffdd50;
+    }
+}
+
+.blue {
+    box-shadow: 2px 2px 20px 15px rgb(59, 130, 246);
+    animation: blueFloat 5s alternate infinite;
 }
 
 .displacement {
@@ -159,6 +191,14 @@
     animation-direction: alternate;
 }
 
+.grainy {
+    mask: url(#grainyMask);
+}
+
+.grainyMask {
+    filter: url(#grainy);
+}
+
 .html.lenis {
     height: 100dvh;
 }
@@ -219,4 +259,18 @@
 
 .nohemiThin {
     font-family: nohemiThin, sans-serif;
+}
+
+.purple {
+    box-shadow: 2px 2px 20px 15px rgb(168, 85, 247);
+    animation: purpleFloat 5s alternate infinite;
+}
+
+.red {
+    box-shadow: 2px 2px 20px 15px rgb(239, 68, 68);
+    animation: redFloat 5s alternate infinite;
+}
+
+.sun {
+    animation: sunshine 8s alternate infinite;
 }
