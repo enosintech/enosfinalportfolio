@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: nohemiBlack;
+    src: url(./assets/fonts/Nohemi-Black.ttf)
+}
+
+@font-face {
+    font-family: nohemiExtraBold;
+    src: url(./assets/fonts/Nohemi-ExtraBold.ttf)
+}
+
+@font-face {
+    font-family: nohemiBold;
+    src: url(./assets/fonts/Nohemi-Bold.ttf)
+}
+
+@font-face {
+    font-family: nohemiSemiBold;
+    src: url(./assets/fonts/Nohemi-SemiBold.ttf)
+}
+
+@font-face {
+    font-family: nohemiMedium;
+    src: url(./assets/fonts/Nohemi-Medium.ttf)
+}
+
+@font-face {
+    font-family: nohemiRegular;
+    src: url(./assets/fonts/Nohemi-Regular.ttf)
+}
+
+@font-face {
+    font-family: nohemiLight;
+    src: url(./assets/fonts/Nohemi-Light.ttf)
+}
+
+@font-face {
+    font-family: nohemiExtraLight;
+    src: url(./assets/fonts/Nohemi-ExtraLight.ttf)
+}
+
+@font-face {
+    font-family: nohemiThin;
+    src: url(./assets/fonts/Nohemi-Thin.ttf)
+}
+
+@keyframes flickerFlame {
+    0% {
+    transform: rotate(-1deg);
+        -moz-transform: rotate(-1deg);
+        -webkit-transform: rotate(-1deg);
+    }
+    20% {
+    transform: rotate(1deg);
+        -moz-transform: rotate(1deg);
+        -webkit-transform: rotate(1deg);
+    }
+    40% {
+    transform: rotate(-1deg);
+        -moz-transform: rotate(-1deg);
+        -webkit-transform: rotate(-1deg);
+    }
+    60% {
+    transform: rotate(1deg) scaleY(1.04);
+    }
+    80% {
+    transform: rotate(-2deg) scaleY(0.92);
+        -moz-transform: rotate(-2deg) scaleY(0.92);
+        -webkit-transform: rotate(-2deg) scaleY(0.92);
+    }
+    100% {
+        transform: rotate(1deg);
+        -webkit-transform: rotate(1deg);
+        -moz-transform: rotate(1deg);
+    }
+}
+
+.displacement {
+    filter: url(#displacementFilter);
+}
+
+.displacement2 {
+    filter: url(#displacementFilter2);
+}
+
+.flame {
+	bottom: 0;
+	position: absolute;
+	border-bottom-right-radius: 50%;
+	border-bottom-left-radius: 50%;
+	border-top-left-radius: 50%;
+	transform: rotate(-35deg) ;
+  -moz-transform: rotate(-35deg);
+  -webkit-transform: rotate(-35deg);
+  -o-transform: rotate(-35deg);
+}
+
+.flameCircle {
+	border-radius: 50%;
+	position: absolute;
+}
+
+.flameOrange {
+	width: 70%;
+	height: 70%;
+	background: orange;
+	box-shadow: 0px 0px 9px 4px orange;
+  position: absolute;
+  z-index: 2;
+}
+
+.flameYellow {
+	width: 60%;
+	height: 60%;
+	background: gold;
+	box-shadow: 0px 0px 9px 4px gold;
+  position: absolute;
+  z-index: 3;
+}
+
+.flameWhite {
+	width: 40%;
+	height: 40%;
+	background: white;
+	box-shadow: 0px 0px 2px 2px white;
+  position: absolute;
+  z-index: 4;
+}
+
+.flameRed {
+	width: 100%;
+	height: 100%;
+	background: OrangeRed;
+	border: 1px solid OrangeRed;
+	box-shadow: 0px 0px 5px 4px OrangeRed;
+  position: absolute;
+  z-index: 1;
+}
+
+.flameContainer {
+    position: relative;
+    top: -8px;
+    left: 0.5px;
+    margin: 0 auto;
+    width: 10px;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: center top;
+    animation-name: flickerFlame;
+    animation-duration: 3ms;
+    animation-delay: 200ms;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.html.lenis {
+    height: 100dvh;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+  
+.lenis.lenis-smooth::-webkit-scrollbar {
+    display: none; 
+}
+    
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+  
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+  
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+.nohemiBlack {
+    font-family: nohemiBlack, sans-serif;
+}
+
+.nohemiExtraBold {
+    font-family: nohemiExtraBold, sans-serif;
+}
+
+.nohemiBold {
+    font-family: nohemiBold, sans-serif;
+}
+
+.nohemiSemiBold {
+    font-family: nohemiSemiBold, sans-serif;
+}
+
+.nohemiMedium {
+    font-family: nohemiMedium, sans-serif;
+}
+
+.nohemiRegular {
+    font-family: nohemiRegular, sans-serif;
+}
+
+.nohemiLight {
+    font-family: nohemiLight, sans-serif;
+}
+
+.nohemiExtraLight {
+    font-family: nohemiExtraLight, sans-serif;
+}
+
+.nohemiThin {
+    font-family: nohemiThin, sans-serif;
+}
