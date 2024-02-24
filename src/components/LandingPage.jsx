@@ -192,7 +192,7 @@ function LandingPage() {
               </div>
             </div>
           </div>
-          <div className="absolute z-[-1] w-full h-full top-0 flex items-center justify-center spacePin">
+          <div className="absolute w-full h-full top-0 flex items-center justify-center spacePin">
             <svg viewBox="0 0 1728 852" fill="none" preserveAspectRatio="xMidYMin slice" className="w-[100%] h-[100%] relative">
               <defs>
                   <filter id="displacementFilter2">
