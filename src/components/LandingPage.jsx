@@ -65,7 +65,7 @@ function LandingPage() {
 
   return (
     <>
-        <div className="w-full h-[100dvh] pt-[60px] relative flex items-end overflow-x-hidden" ref={component}>
+        <div className="w-full h-[100svh] pt-[60px] relative flex items-end overflow-x-hidden" ref={component}>
           <div className="w-fit h-[30px] absolute bg-slate-100 shadow-md border-gray-300 rounded-full p-3 flex items-center justify-center nohemiBlack uppercase text-[13px] top-[120px] mx-auto left-0 right-0">Available Now</div>
           <div className="w-full h-[92%] xl:px-28 grid grid-cols-2 grid-rows-4 gap-0">
             <div className="md:row-span-3 row-span-2 md:col-span-1 col-span-2 md:row-start-1 row-start-1 md:cols-start-1 col-start-1 flex items-center md:justify-end justify-center">

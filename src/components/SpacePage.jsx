@@ -61,30 +61,14 @@ function SpacePage() {
       })
     }, solarSystem)
 
-    let ctx2 = gsap.context(() => {
-      gsap.fromTo(".stagger", {
-        y: 500,
-    }, {
-        y: 0,
-        stagger: 0.2,
-        scrollTrigger: {
-            trigger: ".staggerTrigger",
-            scrub: true,
-            start: "top 90%",
-            end: "top 200px",
-        }
-    })
-    }, spaceGallery)
-
     return(() => {
       ctx1.revert();
-      ctx2.revert();
     })
   }, [])
 
   return (
     <>
-      <div className="w-full h-[100dvh] min-h-[100dvh] flex items-center justify-center relative overflow-x-hidden">
+      <div className="w-full h-[100svh] flex items-center justify-center relative overflow-x-hidden">
           <video key={astronautinspace} loop muted autoPlay className={`bg-white w-full h-full object-cover`}>
               <source src={astronautinspace} type="video/mp4"/>
               Video Format Not supported
@@ -99,53 +83,12 @@ function SpacePage() {
               </div>
           </div>
       </div>
-      <div className="w-full h-[100dvh] bg-black min-h-[100dvh] flex flex-col overflow-x-hidden" ref={solarSystem}>
+      <div className="w-full h-[100svh] bg-black min-h-[100dvh] flex flex-col overflow-x-hidden" ref={solarSystem}>
         <div className="w-full h-full bg-stars relative solarSystemTrigger">
-            <div className="w-[650px] h-[650px] bg-[#ffdd50] rounded-full sun absolute top-0 bottom-0 my-auto -translate-x-[40%] min-[500px]:-translate-x-[20%] sm:translate-x-0 -left-full sm:left-[-80%] md:left-[-60%] lg:left-[-45%] xl:left-[-35%] 2xl:left-[-25%]"></div>
-            <div className="w-[85%] h-fit absolute top-0 bottom-0 my-auto right-0 flex items-center justify-evenly">
-                <div className="lg:w-[50px] w-[20px] md:w-[35px] md:h-[35px] h-[20px] lg:h-[50px] rounded-full down relative">
-                    <img className="w-full h-full rounded-full object-cover" src={mercury} alt="mercury"/>
-                    <span className="nohemiRegular text-white text-[10px] lg:text-[12px] absolute -bottom-6 text-center w-full">Mercury</span>
-                </div>
-                <div className="lg:w-[80px] w-[30px] h-[30px] lg:h-[80px] rounded-full up relative">
-                    <img className="w-full h-full rounded-full object-cover" src={venus} alt="venus"/>
-                    <span className="nohemiRegular text-white text-[10px] lg:text-[12px] absolute -bottom-6 text-center w-full">Venus</span>
-                </div>
-                <div className="w-[85px] h-[85px] rounded-full down relative">
-                    <img className="w-full h-full rounded-full object-cover" src={earth} alt="earth" />
-                    <span className="nohemiRegular text-white text-[12px] absolute -bottom-6 text-center w-full">Earth</span>
-                    <div className="w-fit h-fit p-3 absolute -top-32 left-0 right-0 mx-auto flex flex-col">
-                        <span className="text-white text-center uppercase nohemiBlack">fun fact</span>
-                        <span className="w-[300px] text-[12px] text-white nohemiRegular">Earth may not be flat, but it is not perfectly round either. The planet bulges around the equator by an extra 0.3 percent as a result of the fact that it rotates about its axis.</span>
-                    </div>
-                </div>
-                <div className="w-[70px] h-[70px] rounded-full up relative">
-                    <img className="w-full h-full rounded-full object-cover" src={mars} alt="mars"/>
-                    <span className="nohemiRegular text-white text-[12px] absolute -bottom-6 text-center w-full">Mars</span>
-                </div>
-                <div className="w-[220px] h-[220px] rounded-full up relative">
-                    <img className="w-full h-full roundeed-full object-cover" src={jupiter} alt="jupiter"/>
-                    <span className="nohemiRegular text-white text-[12px] absolute -bottom-6 text-center w-full">Jupiter</span>
-                    <div className="w-[30px] h-full absolute -left-10 top-0">
-                      <img className="w-full h-full object-cover" src={asteroidbelt}/>
-                    </div>
-                </div>
-                <div className="w-[200px] h-[200px] rounded-full down overflow-visible relative">
-                    <img className="w-full h-full rounded-full overflow-visible object-cover" src={saturn} alt="saturn"/>
-                    <span className="nohemiRegular text-white text-[12px] absolute -bottom-6 text-center w-full">Saturn</span>
-                </div>
-                <div className="w-[110px] h-[110px] rounded-full up relative">
-                    <img className="w-full h-full rounded-full object-cover" src={uranus} alt="uranus"/>
-                    <span className="nohemiRegular text-white text-[12px] absolute -bottom-6 text-center w-full">Uranus</span>
-                </div>
-                <div className="w-[100px] h-[100px] rounded-full down relative">
-                    <img className="w-full h-full rounded-full object-cover" src={neptune} alt="neptune"/>
-                    <span className="nohemiRegular text-white text-[12px] absolute -bottom-6 text-center w-full">Neptune</span>
-                </div>
-            </div>
+            
         </div>
       </div>
-      <div className="w-full h-[100dvh] bg-black flex items-center justify-center overflow-x-hidden" ref={spaceGallery}>
+      <div className="w-full h-[100svh] bg-black flex items-center justify-center overflow-x-hidden" ref={spaceGallery}>
         <div className="w-[85%] h-[85%] max-[500px]:h-[75%] flex flex-col rounded-b-xl overflow-hidden staggerTrigger">
             <div className="w-full h-[8%] border-b-4 border-white flex items-center justify-between px-5">
                 <span className="nohemiBlack text-white text-[14px] min-[500px]:text-[20px] uppercase">space gallery</span>
@@ -164,7 +107,7 @@ function SpacePage() {
             </div>
         </div>
       </div>
-      <div className="w-full h-[100dvh] bg-black flex items-center justify-center overflow-x-hidden">
+      <div className="w-full h-[100svh] bg-black flex items-center justify-center overflow-x-hidden">
         <div className="w-[85%] h-[85%] relative flex md:flex-row flex-col bg-black overflow-hidden">
             <div className="md:w-1/2 w-full md:h-full h-1/2 relative rounded-xl">
                 {nasaApodData.media_type === "video" ? 

@@ -42,7 +42,7 @@ function AboutmePage() {
   }, [])
   return (
     <>
-        <div className="w-full h-[100dvh] bg-black relative flex flex-col">
+        <div className="w-full h-[100svh] bg-black relative flex flex-col">
           <div className="w-full h-[200px] absolute top-[-100px] bg-gradient-to-b from-transparent via-50% via-black to-black">
 
           </div>
@@ -102,7 +102,7 @@ function AboutmePage() {
             </div>
           </div>
         </div>
-        <div className="w-full h-[100dvh] bg-black relative flex lg:flex-row-reverse flex-col overflow-x-visible" ref={component}>
+        <div className="w-full h-[100svh] bg-black relative flex lg:flex-row-reverse flex-col overflow-x-visible" ref={component}>
           <div className="w-[40%] h-fit absolute lg:top-20 top-[50dvh] left-8 lg:left-20 flex flex-col overflow-visible">
             <div className="w-fit h-fit pl-2 flex nohemiBlack text-white uppercase tracking-tight text-[40px] lg:text-[100px]">
                 <span>e</span>
@@ -141,7 +141,7 @@ function AboutmePage() {
             </svg>
           </div>
         </div>
-        <div className="w-full h-[100dvh] bg-black relative flex items-center justify-center">
+        <div className="w-full h-[100svh] bg-black relative flex items-center justify-center">
           <div className="w-[85%] h-[85%] flex flex-col">
               <div className="w-full h-[10%] md:text-lg text-[14px] nohemiBlack flex items-center justify-between px-5 border-b-[0.5px] border-white">
                   <span className="text-white uppercase transition-all tracking-wide">key skills</span>

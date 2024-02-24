@@ -9,7 +9,7 @@ import astronaut from "../assets/videos/astronaut.mp4";
 function MarsPage() {
   return (
     <>
-      <div className="w-full h-[100dvh] bg-black flex items-center justify-center overflow-x-hidden">
+      <div className="w-full h-[100svh] bg-black flex items-center justify-center overflow-x-hidden">
           <div className="w-fit h-fit flex flex-col items-center relative">
               <span className="nohemiExtraBold z-10 text-gray-400 text-[14px] sm:text-[20px] tracking-wider uppercase">upcoming</span>
               <div className="nohemilight relative z-10 text-white text-[30px] sm:text-[55px] tracking-tighter uppercase">
@@ -37,7 +37,7 @@ function MarsPage() {
               </svg>
           </div>
       </div>
-      <div className="w-full h-[100dvh] relative overflow-x-hidden">
+      <div className="w-full h-[100svh] relative overflow-x-hidden">
           <video key={mars} className="w-full h-full object-cover" loop muted autoPlay>
               <source src={mars} type="video/mp4"/>
               Video Format Not Supported
@@ -52,8 +52,8 @@ function MarsPage() {
               </div>
           </div>
       </div>
-      <div className="w-full h-[20dvh] overflow-x-hidden bg-black"></div>
-      <div className="w-full h-[100dvh] min-h-[100dvh] relative flex flex-col overflow-x-hidden">
+      <div className="w-full h-[20svh] overflow-x-hidden bg-black"></div>
+      <div className="w-full h-[100svh] relative flex flex-col overflow-x-hidden">
         <div className="w-full h-1/2 relative flex items-center justify-center gap-5 md:gap-20">
             <div className="xl:w-[18%] lg:w-[25%] md:w-[23%] sm:w-[25%] w-[23%] h-[50%] sm:h-[65%] md:h-[75%] lg:h-[80%] xl:h-[85%] shadow rounded-2xl overflow-hidden relative">
                 <img className="w-full h-full object-cover" src={galecrater}  alt="gale crater"/>
