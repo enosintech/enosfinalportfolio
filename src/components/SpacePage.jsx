@@ -83,7 +83,7 @@ function SpacePage() {
               </div>
           </div>
       </div>
-      <div className="w-full h-[100svh] bg-black min-h-[100dvh] flex flex-col overflow-x-hidden" ref={solarSystem}>
+      <div className="w-full h-[100svh] bg-black flex flex-col overflow-x-hidden" ref={solarSystem}>
         <div className="w-full h-full bg-stars relative solarSystemTrigger">
             
         </div>

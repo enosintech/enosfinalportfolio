@@ -26,7 +26,7 @@ function App() {
       <div className='w-[30px] h-[60px] left-0 right-0 mx-auto border-4 border-white mb-2 rounded-full flex items-start justify-center fixed bottom-2 z-[200]'>
         <div className='w-[15px] h-[15px] rounded-full bg-white animate-bouncer'></div>
       </div>
-      <div className="w-[15px] h-[85dvh] fixed left-2 lg:left-5 z-[200] top-20 flex flex-col items-center overflow-visible scrollbar">
+      <div className="w-[15px] h-[85svh] fixed left-2 lg:left-5 z-[200] top-20 flex flex-col items-center overflow-visible scrollbar">
         <div className="w-fit h-fit overflow-visible absolute top-0 -left-[2px] progress flex flex-col">
             <div class="flameContainer">
                 <div class="flameRed flame"></div>
@@ -36,7 +36,7 @@ function App() {
                 <div class="flameBlue flameCircle"></div>
                 <div class="flameBlack flameCircle"></div>
             </div>
-            <img  src={rocket} alt="space rocket" className="w-fit h-fit object-contain scale-[3] translate-y-5 -translate-x-[0.5px] rotate-[133deg]"/>
+            <img  src={rocket} alt="space rocket" className="w-fit h-fit object-contain scale-[3] -translate-x-[0.5px] rotate-[133deg]"/>
         </div>
         <span className="text-white nohemiThin text-[10px]">Earth</span>
         <div className="w-[7px] h-[7px] rounded-full bg-white"></div>
