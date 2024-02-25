@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 import HomeScreen from "./screens/HomeScreen.jsx";
@@ -9,7 +10,7 @@ import BlogScreen from "./screens/BlogScreen.jsx";
 
 import rocket from "./assets/icons/rocket.webp";
 import space from "./assets/videos/space.mp4";
-import { useEffect, useRef } from "react";
+import marsb from "./assets/images/marsbackground.webp";
 
 function App() {
 
@@ -82,13 +83,13 @@ function App() {
                   <circle cx="870" cy="800" r="50" fill="white" className="displacement2"/>
               </mask>
           </defs>
-          <foreignObject width="100%" height="100%" preserveAspectRatio="xMidYMin slice" className="maskedObject">
+          {/*<foreignObject width="100%" height="100%" preserveAspectRatio="xMidYMin slice" className="maskedObject">
               <video key={space} xmlns="http://www.w3.org/1999/xhtml" autoPlay loop muted crossOrigin="anonymous" className="relative object-contain">
                   <source src={space} type="video/mp4"/>
                   Video Format not Supported
               </video>
-          </foreignObject>
-          {/*<image width="100%" height="100%" mask="url(#circleMask2)" className="object-cover w-full h-full" xlinkHref={marsb}/>*/}
+          </foreignObject>*/}
+          <image width="100%" height="100%" mask="url(#circleMask2)" className="object-cover w-full h-full" xlinkHref={marsb}/>
         </svg>       
       </div>
       <Routes>
