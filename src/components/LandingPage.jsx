@@ -17,6 +17,7 @@ import earth from "../assets/images/earth.webp";
 import workPrompt from "../assets/images/workPrompt.webp";
 import dynamicCube from "../assets/animations/dynamicCube.json";
 import bio from "../assets/images/bio.webp";
+import marsb from "../assets/images/marsbackground.webp";
 
 function LandingPage() {
     const [ workVisible, setWorkVisible ] = useState(false);
@@ -46,7 +47,7 @@ function LandingPage() {
         ScrollTrigger.create({
           trigger: ".spacePin",
           start: "top top",
-          end: "bottom -200%",
+          end: "bottom -300%",
           pin: true,
         })
 
@@ -193,7 +194,7 @@ function LandingPage() {
               </div>
             </div>
           </div>
-          <div className="absolute w-full h-full top-0 flex items-center justify-center spacePin">
+          <div className="absolute w-full h-[100dvh] top-0 flex items-center justify-center spacePin">
             <svg viewBox="0 0 1728 852" fill="none" preserveAspectRatio="xMidYMin slice" className="w-[100%] h-[100%] relative">
               <defs>
                   <filter id="displacementFilter2">
@@ -210,7 +211,7 @@ function LandingPage() {
                       Video Format not Supported
                   </video>
               </foreignObject>*/}
-              <image width="100%" height="100%" mask="url(#circleMask2)" className="object-cover" xlinkHref={bio}/>
+              <image width="100%" height="100%" mask="url(#circleMask2)" className="object-cover w-full h-full" xlinkHref={marsb}/>
             </svg>       
           </div>
         </div>
