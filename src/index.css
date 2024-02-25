@@ -112,10 +112,12 @@
 
 .displacement {
     filter: url(#displacementFilter);
+    --webkit-filter:url(#displacementFilter);
 }
 
 .displacement2 {
     filter: url(#displacementFilter2);
+    --webkit-filter:url(#displacementFilter2);
 }
 
 .flame {
@@ -223,6 +225,11 @@
   
 .lenis.lenis-scrolling iframe {
     pointer-events: none;
+}
+
+.maskedObject {
+    mask: url(#circleMask2);
+    -webkit-mask:url(#circleMask2)
 }
 
 .nohemiBlack {

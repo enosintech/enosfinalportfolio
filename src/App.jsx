@@ -2,13 +2,34 @@ import { Route, Routes } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import gsap from "gsap";
 
 import HomeScreen from "./screens/HomeScreen.jsx";
 import BlogScreen from "./screens/BlogScreen.jsx";
 
 import rocket from "./assets/icons/rocket.webp";
+import space from "./assets/videos/space.mp4";
+import { useEffect, useRef } from "react";
 
 function App() {
+
+  const component = useRef(null);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.to(".displacement2", {
+        attr: {
+          r: 3000,
+        },
+        scrollTrigger: {
+          trigger: ".spacer",
+          scrub: true
+        }
+      })
+    }, component)
+
+    return () => ctx.revert();
+  }, [])
   return (
     <>
       <div className="w-[100dvw] h-[60px] z-[300] fixed top-0 flex items-center justify-between px-5 sm:px-8 md:px-10">
@@ -49,6 +70,26 @@ function App() {
       <div className={`w-[100dvw] h-[40px] z-[300] fixed top-[95dvh] flex justify-between px-8 nohemiBlack`}>
         <span className="text-white uppercase tracking-tight">available now</span>
         <span className="text-white uppercase tracking-tight">contact me</span>
+      </div>
+      <div className="fixed w-full h-[100lvh] flex items-center justify-center spacePin" ref={component}>
+        <svg viewBox="0 0 1728 852" fill="none" preserveAspectRatio="xMidYMin slice" className="w-[100%] h-[100lvh] relative">
+          <defs>
+              <filter id="displacementFilter2">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="1" result="noise"/>
+                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="50" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+              <mask id="circleMask2">
+                  <circle cx="870" cy="800" r="50" fill="white" className="displacement2"/>
+              </mask>
+          </defs>
+          <foreignObject width="100%" height="100%" preserveAspectRatio="xMidYMin slice" className="maskedObject">
+              <video key={space} xmlns="http://www.w3.org/1999/xhtml" autoPlay loop muted crossOrigin="anonymous" className="relative object-contain">
+                  <source src={space} type="video/mp4"/>
+                  Video Format not Supported
+              </video>
+          </foreignObject>
+          {/*<image width="100%" height="100%" mask="url(#circleMask2)" className="object-cover w-full h-full" xlinkHref={marsb}/>*/}
+        </svg>       
       </div>
       <Routes>
         <Route path="/" element={<HomeScreen />}/>

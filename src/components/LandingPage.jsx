@@ -194,26 +194,6 @@ function LandingPage() {
               </div>
             </div>
           </div>
-          <div className="absolute w-full h-[100dvh] top-0 flex items-center justify-center spacePin">
-            <svg viewBox="0 0 1728 852" fill="none" preserveAspectRatio="xMidYMin slice" className="w-[100%] h-[100%] relative">
-              <defs>
-                  <filter id="displacementFilter2">
-                      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="1" result="noise"/>
-                      <feDisplacementMap in="SourceGraphic" in2="noise" scale="50" xChannelSelector="R" yChannelSelector="G"/>
-                  </filter>
-                  <mask id="circleMask2">
-                      <circle cx="870" cy="800" r="50" fill="white" className="displacement2"/>
-                  </mask>
-              </defs>
-              {/*<foreignObject width="100%" height="100%" preserveAspectRatio="xMidYMin slice" mask="url(#circleMask2)">
-                  <video key={space} xmlns="http://www.w3.org/1999/xhtml" autoPlay loop muted crossOrigin="anonymous" className="relative object-contain">
-                      <source src={space} type="video/mp4"/>
-                      Video Format not Supported
-                  </video>
-              </foreignObject>*/}
-              <image width="100%" height="100%" mask="url(#circleMask2)" className="object-cover w-full h-full" xlinkHref={marsb}/>
-            </svg>       
-          </div>
         </div>
     </>
   )
