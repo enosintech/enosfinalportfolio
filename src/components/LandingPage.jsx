@@ -16,6 +16,7 @@ import enos5 from "../assets/images/mainenos5.webp";
 import earth from "../assets/images/earth.webp";
 import workPrompt from "../assets/images/workPrompt.webp";
 import dynamicCube from "../assets/animations/dynamicCube.json";
+import bio from "../assets/images/bio.webp";
 
 function LandingPage() {
     const [ workVisible, setWorkVisible ] = useState(false);
@@ -203,12 +204,13 @@ function LandingPage() {
                       <circle cx="870" cy="800" r="50" fill="white" className="displacement2"/>
                   </mask>
               </defs>
-              <foreignObject width="100%" height="100%" preserveAspectRatio="xMidYMin slice" mask="url(#circleMask2)">
-                  <video key={space} xmlns="http://www.w3.org/1999/xhtml" height="100%" width="100%" autoPlay loop muted crossOrigin="anonymous" className="relative object-contain">
+              {/*<foreignObject width="100%" height="100%" preserveAspectRatio="xMidYMin slice" mask="url(#circleMask2)">
+                  <video key={space} xmlns="http://www.w3.org/1999/xhtml" autoPlay loop muted crossOrigin="anonymous" className="relative object-contain">
                       <source src={space} type="video/mp4"/>
                       Video Format not Supported
                   </video>
-              </foreignObject>
+              </foreignObject>*/}
+              <image width="100%" height="100%" mask="url(#circleMask2)" className="object-cover" xlinkHref={bio}/>
             </svg>       
           </div>
         </div>
