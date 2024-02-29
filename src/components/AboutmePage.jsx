@@ -43,7 +43,7 @@ function AboutmePage() {
   return (
     <>
         <div className="w-full h-[100svh] bg-black relative flex flex-col">
-          <div className="w-full h-[200px] absolute top-[-100px] bg-gradient-to-b from-transparent via-50% via-black to-black">
+          <div className="w-full h-[200px] absolute top-[-100px] bg-gradient-to-b from-transparent via-50% via-black to-black contactAppearTrigger">
 
           </div>
           <div className="w-full h-[45%] flex px-14 translate-y-32">
@@ -60,15 +60,7 @@ function AboutmePage() {
                             <span className="text-white nohemiSemiBold tracking-tight uppercase text-[6px] md:text-[9px] opacity-0 group-hover:opacity-100 transition-all duration-500">about me</span>
                         </div>
                     </div>
-                    <div className="xl:w-[15%] lg:w-[20%] w-[25%] h-[50%] md:h-[65%] sm:h-[60%] lg:h-[70%] xl:h-[80%] rounded-xl shadow-md rotate-[6deg] group relative hover:scale-[1.3] transition-all duration-300 cursor-pointer select-none">
-                        <img src={about2} className="w-full h-full rounded-xl object-cover" alt="work picture"/>
-                        <div className="w-fit h-fit flex flex-col absolute bottom-2 md:bottom-10 right-1 md:right-4 text-[8px] md:text-[11px] text-right">
-                            <span className="text-white nohemiBlack tracking-tight uppercase">busiest place</span>
-                            <span className="text-white nohemiBlack tracking-tight uppercase">in the universe</span>
-                            <span className="text-white nohemiSemiBold tracking-tight uppercase text-[6px] md:text-[9px] opacity-0 group-hover:opacity-100 transition-all duration-500">view work</span>
-                        </div>
-                    </div>
-                    <div className="xl:w-[15%] lg:w-[20%] w-[25%] h-[50%] md:h-[65%] sm:h-[60%] lg:h-[70%] xl:h-[80%] rounded-xl shadow-md -rotate-[4deg] group relative hover:scale-[1.3] transition-all duration-300 cursor-pointer select-none">
+                    <div className="xl:w-[15%] lg:w-[20%] w-[25%] h-[50%] md:h-[65%] sm:h-[60%] lg:h-[70%] xl:h-[80%] rounded-xl shadow-md rotate-[4deg] group relative hover:scale-[1.3] transition-all duration-300 cursor-pointer select-none">
                         <img src={about3} className="w-full h-full rounded-xl object-cover" alt="deep in space"/>
                         <div className="w-fit h-fit flex flex-col absolute bottom-2 md:bottom-10 right-1 md:right-4 text-[8px] md:text-[11px] text-right">
                             <span className="text-white nohemiBlack tracking-tight uppercase">deep</span>
@@ -76,7 +68,7 @@ function AboutmePage() {
                             <span className="text-white nohemiSemiBold tracking-tight uppercase text-[6px] md:text-[9px] opacity-0 group-hover:opacity-100 transition-all duration-500">space tour</span>
                         </div>
                     </div>
-                    <div className="xl:w-[15%] lg:w-[20%] w-[25%] h-[50%] md:h-[65%] sm:h-[60%] lg:h-[70%] xl:h-[80%] rounded-xl shadow-md rotate-[7deg] group relative hover:scale-[1.3] transition-all duration-300 cursor-pointer select-none">
+                    <div className="xl:w-[15%] lg:w-[20%] w-[25%] h-[50%] md:h-[65%] sm:h-[60%] lg:h-[70%] xl:h-[80%] rounded-xl shadow-md -rotate-[7deg] group relative hover:scale-[1.3] transition-all duration-300 cursor-pointer select-none">
                         <img src={about4} className="w-full h-full rounded-xl object-cover" alt="mars"/>
                         <div className="w-fit h-fit flex flex-col absolute bottom-2 md:bottom-10 right-1 md:right-4 text-[8px] md:text-[11px] text-right">
                             <span className="text-white nohemiBlack tracking-tight uppercase">gale</span>

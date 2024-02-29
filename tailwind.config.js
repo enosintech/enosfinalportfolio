@@ -39,12 +39,22 @@ export default {
             transform : "rotate(360deg)"
           },
         },
+        scroll : {
+          "0%" : {
+            height: "0px",
+          },
+          
+          "100%" : {
+            height: "55px",
+          }
+        }
       },
       animation: {
         "bouncer" : "bouncer 0.8s alternate infinite",
         "pulse" : "pulse 0.8s alternate infinite",
         "enlarge" : "enlarge 0.5s alternate infinite",
-        "rotate" : "rotate 2s linear infinite",
+        "rotate" : "rotate 40s linear infinite",
+        "scroll" : "scroll 0.8s alternate infinite",
       }
     },
   },

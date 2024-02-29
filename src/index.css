@@ -110,6 +110,11 @@
     animation: blueFloat 5s alternate infinite;
 }
 
+.cursor {
+    pointer-events: none;
+    transition: transform 0.1s;
+}
+
 .displacement {
     filter: url(#displacementFilter);
     --webkit-filter:url(#displacementFilter);
@@ -202,7 +207,7 @@
 }
 
 .html.lenis {
-    height: 100dvh;
+    height: 100svh;
 }
 
 .lenis.lenis-smooth {
