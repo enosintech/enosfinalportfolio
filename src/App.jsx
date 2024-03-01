@@ -9,7 +9,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import CursorContextProvider from "./utils/CursorContextProvider.jsx";
 
 import HomeScreen from "./screens/HomeScreen.jsx";
-import BlogScreen from "./screens/BlogScreen.jsx";
 
 import rocket from "./assets/icons/rocket.webp";
 import arrow from "./assets/icons/arrow.png";
@@ -97,10 +96,7 @@ function App({children}) {
           </div>
         </div>
       </div>
-      <Routes>
-        <Route path="/" element={<HomeScreen setContact={setContact}/>}/>
-        <Route path="/blog" element={<BlogScreen />} />
-      </Routes>
+      <HomeScreen setContact={setContact}/>
     </CursorContextProvider>
     </>
   )

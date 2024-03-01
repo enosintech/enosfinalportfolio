@@ -3,6 +3,9 @@ export default {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        "ds": "'Dancing Script', cursive",
+      },
       backgroundImage: {
         "stars": "url(./assets/images/starsbg.webp)"
       },
