@@ -215,7 +215,7 @@ function LandingPage(props) {
                     </div>
                     <div className={`${contactVisible || workVisible ? "rounded-2xl" : "rounded-none"} transition-all overflow-hidden w-full h-full bg-black relative`}>
                       <div className="w-full h-full">
-                        <video key={enosVideo} controls={false} autoPlay={true} loop={true}  muted={true} className="w-full h-full object-cover">
+                        <video key={enosVideo} controls={false} autoPlay={true} loop={true}  muted={true} playsInline className="w-full h-full object-cover">
                           <source src={enosVideo} type="video/mp4"/>
                           Video Format Not Supported
                         </video>
