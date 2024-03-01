@@ -16,12 +16,6 @@ import LatestBlogsComponent from "../components/LatestBlogsComponent.jsx";
 import space from "../assets/videos/space.mp4";
 import enosVideo from "../assets/videos/enos.mp4";
 
-import enos from "../assets/images/enos.jpg";
-import enos1 from "../assets/images/mainenos1.webp";
-import enos2 from "../assets/images/mainenos2.webp";
-import enos3 from "../assets/images/mainenos3.webp";
-import enos4 from "../assets/images/mainenos4.webp";
-import enos5 from "../assets/images/mainenos5.webp";
 import earth from "../assets/images/earth.webp";
 import workPrompt from "../assets/images/workPrompt.webp";
 import dynamicCube from "../assets/animations/dynamicCube.json";
@@ -50,30 +44,12 @@ function LandingPage(props) {
 
     useEffect(() => {
       let ctx = gsap.context(() => {
-        const imgs = gsap.utils.toArray(".motiv");
-        const next = 0.8;
-        const fade = 0.8;
-
-        gsap.set(imgs[0], {autoAlpha: 1})
-
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: ".contactAppearTrigger",
             toggleActions: "play none none reverse",
           }
         })
-
-        const crossFade = () => {
-          gsap.timeline()
-          .to(imgs[0], {autoAlpha: 0, duration: fade})
-          .to(imgs[1], {autoAlpha: 1, duration: fade}, 0)
-  
-          imgs.push(imgs.shift())
-  
-          gsap.delayedCall(next, crossFade);
-        }
-
-        gsap.delayedCall(next, crossFade);
 
         ScrollTrigger.create({
           trigger: ".spacePin",

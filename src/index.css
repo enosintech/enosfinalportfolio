@@ -283,6 +283,11 @@
     animation: redFloat 5s alternate infinite;
 }
 
+.righttoleft {
+    direction: rtl;
+    text-align: justify;
+}
+
 .sun {
     animation: sunshine 8s alternate infinite;
 }

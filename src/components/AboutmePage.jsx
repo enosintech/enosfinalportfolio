@@ -6,6 +6,11 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 import { CursorContext } from "../utils/CursorContextProvider";
 
+import enos1 from "../assets/images/mainenos1.webp";
+import enos2 from "../assets/images/mainenos2.webp";
+import enos3 from "../assets/images/mainenos3.webp";
+import enos4 from "../assets/images/mainenos4.webp";
+import enos5 from "../assets/images/mainenos5.webp";
 import bio from "../assets/images/bio.webp";
 import moon from "../assets/images/moonImage.webp";
 import about1 from "../assets/images/about1.webp";
@@ -24,6 +29,8 @@ import figma from "../assets/images/figma.webp";
 import mern from "../assets/images/mern.webp";
 import tailwind from "../assets/images/tailwind.webp";
 import react from "../assets/images/reactjs.webp";
+import node from "../assets/images/node.webp";
+import javascript from "../assets/images/javascript.webp";
 
 function AboutmePage() {
   const component = useRef(null);
@@ -39,11 +46,41 @@ function AboutmePage() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
+        const imgs = gsap.utils.toArray(".motiv");
+        const next = 0.8;
+        const fade = 0.8;
+
+        gsap.set(imgs[0], {autoAlpha: 1})
+
+        const crossFade = () => {
+            gsap.timeline()
+            .to(imgs[0], {autoAlpha: 0, duration: fade})
+            .to(imgs[1], {autoAlpha: 1, duration: fade}, 0)
+
+            imgs.push(imgs.shift())
+
+            gsap.delayedCall(next, crossFade);
+        }
+
+        gsap.delayedCall(next, crossFade);
+
       ScrollTrigger.create({
         trigger: ".aboutPin",
         start: "top top",
         end: "bottom -100%",
         pin: true
+      })
+
+      gsap.fromTo(".yieldLeft", {
+        xPercent: 60,
+      }, {
+        xPercent: -60,
+        scrollTrigger: {
+            trigger: ".yieldTrigger",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+        }
       })
     }, component)
 
@@ -125,9 +162,84 @@ function AboutmePage() {
             </div>
           </div>
         </div>
-        <div className="w-full h-[300svh] bg-orange-500 relative overflow-x-visible" ref={component}>
-            <div className="w-full h-[100svh] bg-red-500 aboutPin flex items-center justify-center">
-                <span>This is pinned</span>
+        <div className="w-full h-[300svh] bg-black relative overflow-x-visible yieldTrigger" ref={component}>
+            <div className="w-full h-1/3 aboutPin flex items-center relative">
+                <div className="w-[150vw] min-w-[150vw] h-[75%] backdrop-blur-[3px] flex yieldLeft relative">
+                    <div className="w-[33.33%] min-w-[33.33%] h-full flex items-center justify-end">
+                        <div className="w-[55%] h-[93%] rounded-xl relative overflow-hidden">
+                            <div className="w-full h-full absolute motiv">
+                                <img className="w-full h-full object-cover" src={enos2} alt="Picture of Enos"/>
+                            </div>
+                            <div className="w-full h-full absolute motiv">
+                                <img className="w-full h-full object-cover" src={enos3} alt="Picture of Enos"/>
+                            </div>
+                            <div className="w-full h-full absolute motiv">
+                                <img className="w-full h-full object-cover" src={enos4} alt="Picture of Enos"/>
+                            </div>
+                            <div className="w-full h-full absolute motiv">
+                                <img className="w-full h-full object-cover" src={enos5} alt="Picture of Enos"/>
+                            </div>
+                            <div className="w-full h-full absolute motiv">
+                                <img className="w-full h-full object-cover" src={enos1} alt="Picture of Enos"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-[33.33%] min-w-[33.33%] h-full flex items-center justify-center">
+                        <div className="w-[75%] h-[93%] flex flex-col">
+                            <div className="w-full h-[50%] flex justify-end">
+                                <p className="w-[80%] h-fit text-[22px] uppercase nohemiSemiBold text-white righttoleft">
+                               hi there, i am <span className="text-[#1db954]">enos nsamba,</span> a software developer and lifelong learner from zambia, currently in lusaka. I have an orientation for detail and symmetrical design. I love when things fit and I have an eye for when they don't</p>
+                            </div>
+                            <div className="w-full h-[50%] flex items-center pl-5">
+                                <div className="rounded-full w-[220px] h-[220px] overflow-hidden">
+                                    <img className="w-full h-full object-contain" src={moon} alt="moon image"/>
+                                </div>
+                            </div>        
+                        </div>
+                    </div>
+                    <div className="w-[33.33%] min-w-[33.33%] h-full flex items-center justify-start">
+                        <div className="w-[55%] h-[93%] flex flex-col text-white">
+                            <div className="w-full h-1/3 flex flex-col">
+                                <span className="w-full h-[20%] flex items-center uppercase nohemiLight border-b-2 border-white">summary</span>
+                                <div className="w-full h-[80%] flex">
+                                    <div className="w-1/2 h-full flex flex-col items-center justify-center uppercase">
+                                        <span className="nohemiBlack text-[60px] text-[#1bd954]">3</span>
+                                        <span className="nohemiSemiBold">professional projects</span>
+                                    </div>
+                                    <div className="w-1/2 h-full flex flex-col items-center justify-center uppercase">
+                                        <span className="nohemiBlack text-[60px] text-[#1bd954]">20+</span>
+                                        <span className="nohemiSemiBold">learning projects</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="w-full h-1/3 flex flex-col">
+                                <div className="w-full h-full flex">
+                                    <div className="w-[50%] h-full items-center justify-center flex px-3">
+                                        <div className="flex flex-col uppercase nohemiSemiBold text-[#1db954]">
+                                            <span>distance travelled</span>
+                                            <span>in code</span>
+                                        </div>
+                                    </div>
+                                    <div className="w-[50%] h-full items-center justify-center flex flex-col uppercase text-[25px] nohemiBold">
+                                        <span>50,000+</span>
+                                        <span>lines</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="w-full h-1/3 flex">
+                                <div className="w-full h-full flex flex-col-reverse items-center justify-center gap-8">
+                                    <div className="w-full flex items-center justify-evenly">
+                                        <img className="w-[65px] h-[65px] rotate-[-9deg] object-contain" alt="node icon" src={node}/>
+                                        <img className="w-[65px] h-[65px] rotate-[-15deg] object-contain" alt="ts icon" src={javascript}/>
+                                        <img className="w-[65px] h-[65px] rotate-[19deg] object-contain" alt="react icon" src={react}/>
+                                        <img className="w-[65px] h-[65px] rotate-[19deg] object-contain" alt="tailwind icon" src={tailwind}/>
+                                    </div>
+                                    <span className="uppercase nohemiSemiBold text-[20px]">prefers</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div className="w-full h-[100svh] bg-black relative flex items-center justify-center">
