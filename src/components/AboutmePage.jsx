@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAsterisk } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useContext, useCallback } from "react";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 import { CursorContext } from "../utils/CursorContextProvider";
 
@@ -38,15 +39,12 @@ function AboutmePage() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.to(".displacement", {
-        attr: {
-            r: 300,
-        },
-        scrollTrigger: {
-            trigger: ".svgTrigger",
-            scrub: true,
-        }
-    })
+      ScrollTrigger.create({
+        trigger: ".aboutPin",
+        start: "top top",
+        end: "bottom -100%",
+        pin: true
+      })
     }, component)
 
     return () => ctx.revert();
@@ -61,7 +59,7 @@ function AboutmePage() {
             <div className="w-[30%] relative z-[10000] h-[80%] flex flex-col items-center justify-evenly">
                 <div className="w-[70%] h-[70%] flex flex-col">
                     {tripDetails.map((tripDetail, index) => (
-                        <div key={tripDetail.id} index={index} className={`w-full h-1/5 ${tripDetail.id === tripDetails.length ? "border-none pb-2" : "border-b-4 pb-1"} border-white flex items-end justify-between px-3 uppercase text-white`}>
+                        <div key={tripDetail.id} index={index} className={`w-full h-1/5 ${tripDetail.id === tripDetails.length ? "border-none pb-2" : "border-b-4 pb-1"} border-white flex items-end justify-between px-3 text-white`}>
                             <span className="nohemiRegular text-[13px]">{tripDetail.text1}</span>
                             <span className="nohemiExtraBold text-[18px]">{tripDetail.text2}</span>
                         </div>
@@ -127,8 +125,10 @@ function AboutmePage() {
             </div>
           </div>
         </div>
-        <div className="w-full h-[100svh] bg-black relative flex lg:flex-row-reverse flex-col overflow-x-visible" ref={component}>
-          
+        <div className="w-full h-[300svh] bg-orange-500 relative overflow-x-visible" ref={component}>
+            <div className="w-full h-[100svh] bg-red-500 aboutPin flex items-center justify-center">
+                <span>This is pinned</span>
+            </div>
         </div>
         <div className="w-full h-[100svh] bg-black relative flex items-center justify-center">
           
@@ -142,28 +142,28 @@ export default AboutmePage;
 const tripDetails = [
     {
         id: 1,
-        text1: "destination",
-        text2: "mars",
+        text1: "DESTINATION",
+        text2: "Mars",
     },
     {
         id: 2,
-        text1: "km from lift-off",
-        text2: "408 km",
+        text1: "KM FROM LIFT OFF",
+        text2: "408 Km",
     },
     {
         id: 3,
-        text1: "km to destination",
-        text2: "480 M Km",
+        text1: "KM TO DESTINATION",
+        text2: "480 Mil Km",
     },
     {
         id: 4,
-        text1: "eta",
+        text1: "ETA",
         text2: "7 Months"
     },
     {
         id: 5,
-        text1: "current speed",
-        text2: "escape velocity",
+        text1: "CURRENT SPEED",
+        text2: "Escape Velocity",
     },
 ]
 
