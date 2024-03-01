@@ -6,6 +6,7 @@ import Lottie from "lottie-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowRight, faCertificate, faHouse, faTv, faVolumeHigh } from "@fortawesome/free-solid-svg-icons";
+import { math, random } from "canvas-sketch-util";
 
 import { CursorContext } from "../utils/CursorContextProvider.jsx";
 import useMousePosition from "../hooks/useMousePosition.js";
@@ -13,7 +14,9 @@ import useMousePosition from "../hooks/useMousePosition.js";
 import LatestBlogsComponent from "../components/LatestBlogsComponent.jsx";
 
 import space from "../assets/videos/space.mp4";
+import enosVideo from "../assets/videos/enos.mp4";
 
+import enos from "../assets/images/enos.jpg";
 import enos1 from "../assets/images/mainenos1.webp";
 import enos2 from "../assets/images/mainenos2.webp";
 import enos3 from "../assets/images/mainenos3.webp";
@@ -31,6 +34,7 @@ function LandingPage(props) {
     const [ workVisible, setWorkVisible ] = useState(false);
     const [ contactVisible, setContactVisible ] = useState(false);
     const [ tvVisible, setTvVisible ] = useState("home"); 
+
     const component = useRef(null);
 
     const { X, Y } = useMousePosition();
@@ -209,8 +213,14 @@ function LandingPage(props) {
                             <span className="flex items-center justify-end text-white nohemiLight text-[35px] sm:text-[45px] lg:text-[50px] tracking-tighter">anywhere on earth</span>
                         </div>
                     </div>
-                    <div className={`${contactVisible || workVisible ? "rounded-2xl" : "rounded-none"} transition-all w-full h-full bg-black relative`}>
-                      <div className={`absolute left-14 bottom-8 w-fit h-fit flex flex-col text-white uppercase`}>
+                    <div className={`${contactVisible || workVisible ? "rounded-2xl" : "rounded-none"} transition-all overflow-hidden w-full h-full bg-black relative`}>
+                      <div className="w-full h-full">
+                        <video key={enosVideo} controls={false} autoPlay={true} loop={true}  muted={true} className="w-full h-full object-cover">
+                          <source src={enosVideo} type="video/mp4"/>
+                          Video Format Not Supported
+                        </video>
+                      </div>
+                      <div className={`absolute z-[10000] text-[22px] left-10 bottom-8 w-fit h-fit flex flex-col text-white uppercase`}>
                         <span className="nohemiBlack">enos nsamba</span>
                         <span className="nohemiRegular">full stack developer</span>
                       </div>
