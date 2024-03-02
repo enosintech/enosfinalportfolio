@@ -3,8 +3,11 @@ import { faAsterisk } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useContext, useCallback } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from '@react-three/drei';
 
 import { CursorContext } from "../utils/CursorContextProvider";
+import { Model } from "../assets/3d-models/ship/Scene";
 
 import enos1 from "../assets/images/mainenos1.webp";
 import enos2 from "../assets/images/mainenos2.webp";
@@ -34,6 +37,7 @@ import javascript from "../assets/images/javascript.webp";
 
 function AboutmePage() {
   const component = useRef(null);
+  const spaceShip = useRef(null);
   const [ cursor, setCursor ] = useContext(CursorContext);
 
   const toggleCursorHover = useCallback(() => {
@@ -71,10 +75,17 @@ function AboutmePage() {
         pin: true
       })
 
+      ScrollTrigger.create({
+        trigger: ".modelPin",
+        start: "top top",
+        bottom: "bottom -100%",
+        pin: true,
+      })
+
       gsap.fromTo(".yieldLeft", {
-        xPercent: 60,
+        xPercent: 0,
       }, {
-        xPercent: -60,
+        xPercent: -33,
         scrollTrigger: {
             trigger: ".yieldTrigger",
             start: "top top",
@@ -86,8 +97,9 @@ function AboutmePage() {
 
     return () => ctx.revert();
   }, [])
+
   return (
-    <>
+    <div ref={component}>
         <div className="w-full h-[100svh] bg-black relative flex flex-col z-[600]">
           <div className="w-full h-[200px] absolute top-[-100px] bg-gradient-to-b from-transparent via-50% via-black to-black contactAppearTrigger">
 
@@ -162,7 +174,7 @@ function AboutmePage() {
             </div>
           </div>
         </div>
-        <div className="w-full h-[500svh] bg-black z-[600] relative overflow-x-hidden yieldTrigger" ref={component}>
+        <div className="w-full h-[500svh] bg-black z-[600] relative overflow-x-hidden yieldTrigger">
             <div className="w-full h-1/5 aboutPin flex items-center relative">
                 <div className="w-[150vw] min-w-[150vw] h-[75%] backdrop-blur-[3px] flex yieldLeft relative">
                     <div className="w-[33.33%] min-w-[33.33%] h-full flex items-center justify-end">
@@ -242,12 +254,19 @@ function AboutmePage() {
                 </div>
             </div>
         </div>
-        <div className="w-full h-[100svh] bg-black relative flex items-center justify-center">
-          <div className="h-full w-[25%] flex justify-center pt-20">
+        <div className="w-full h-[100svh] bg-black relative flex items-center justify-center shipTrigger1 overflow-y-visible">
+          <div className="w-full h-full top-0 absolute modelPin overflow-y-visible">
+            <Canvas>
+                <ambientLight intensity={1.25}/>
+                    <Model />
+                <OrbitControls enableZoom={false} enableRotate={false}/>
+            </Canvas>       
+          </div>          
+          <div className="h-full w-[25%] flex flex-col items-center justify-between pt-20 pb-5">
             <div className="w-fit h-fit uppercase flex flex-col">
                 <span className="beckanr text-[55px] text-[#1db954]">key tools</span>
                 <span className="text-[50px] -translate-y-6 nohemiSemiBold text-white">& services</span>
-            </div>          
+            </div>        
           </div>
           <div className="h-full w-[75%] relative">
             <div className="w-full h-[80%] absolute bottom-0 flex flex-col items-center">
@@ -266,7 +285,7 @@ function AboutmePage() {
             </div>       
           </div>
         </div>
-    </>
+    </div>
   )
 }
 
