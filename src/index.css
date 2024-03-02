@@ -3,6 +3,26 @@
 @tailwind utilities;
 
 @font-face {
+    font-family: beckano;
+    src: url(./assets/fonts/bo.ttf);
+}
+
+@font-face {
+    font-family: beckanR;
+    src: url(./assets/fonts/br.ttf);
+}
+
+@font-face {
+    font-family: mellowDay;
+    src: url(./assets//fonts/Melowday.ttf);
+}
+
+@font-face {
+    font-family: moralesBonaven;
+    src: url(./assets/fonts/moralesB.ttf);
+}
+
+@font-face {
     font-family: nohemiBlack;
     src: url(./assets/fonts/Nohemi-Black.ttf)
 }
@@ -105,9 +125,26 @@
     }
 }
 
+@keyframes ping {
+    0% {
+        box-shadow: none;
+    }
+    100% {
+        box-shadow: 1px 1px 0px 4px rgba(29, 185, 84, 0.3), -1px -1px 0px 4px rgba(29, 185, 84, 0.3);
+    }
+}
+
 .blue {
     box-shadow: 2px 2px 20px 15px rgb(59, 130, 246);
     animation: blueFloat 5s alternate infinite;
+}
+
+.beckano {
+    font-family: beckano, serif;
+}
+
+.beckanr {
+    font-family: beckanr, serif;
 }
 
 .cursor {
@@ -237,6 +274,14 @@
     -webkit-mask:url(#circleMask2)
 }
 
+.moralesB {
+    font-family: moralesBonaven, serif;
+}
+
+.mellowDay {
+    font-family: mellowDay, serif;
+}
+
 .nohemiBlack {
     font-family: nohemiBlack, sans-serif;
 }
@@ -278,6 +323,14 @@
     animation: purpleFloat 5s alternate infinite;
 }
 
+.pin-spacer {
+    pointer-events: none;
+}
+
+.pingBoxShadow {
+    animation: ping 1s alternate infinite;
+}
+
 .red {
     box-shadow: 2px 2px 20px 15px rgb(239, 68, 68);
     animation: redFloat 5s alternate infinite;
@@ -290,4 +343,8 @@
 
 .sun {
     animation: sunshine 8s alternate infinite;
+}
+
+.scalePin {
+    pointer-events: all;
 }

@@ -17,6 +17,7 @@ import space from "../assets/videos/space.mp4";
 import enosVideo from "../assets/videos/enos.mp4";
 
 import earth from "../assets/images/earth.webp";
+import motherearth from "../assets/images/motherearth.webp";
 import workPrompt from "../assets/images/workPrompt.webp";
 import dynamicCube from "../assets/animations/dynamicCube.json";
 import bio from "../assets/images/bio.webp";
@@ -57,6 +58,23 @@ function LandingPage(props) {
           pin: true,
         })
 
+        ScrollTrigger.create({
+          trigger: ".scalePin",
+          start: "top 210px",
+          end: "bottom -200%",
+          pin: true,
+        })
+
+        gsap.fromTo(".scalePin", {
+          scale: 1,
+        }, {
+          scale: -2,
+          scrollTrigger: {
+            trigger: ".spacer",
+            scrub: true,
+          }
+        })
+
         gsap.to(".displacement2", {
           attr: {
             r: 3000,
@@ -86,10 +104,10 @@ function LandingPage(props) {
 
   return (
     <>
-        <div className="w-full h-[100svh] pt-[60px] relative flex items-end overflow-x-hidden" ref={component}>
+        <div className="w-full bg-black h-[100svh] pt-[60px] relative flex items-end overflow-x-hidden" ref={component}>
           <div className={`cursor sm:block hidden fixed left-0 rounded-full top-0 ${cursor.hover ? "w-[25px] h-[25px] border-4 bg-none border-red-500" : cursor.active ? "w-[15px] h-[15px] bg-red-500" : "bg-[#1db954] border-none w-[100px] h-[100px]"} z-[9999]  transition-all`} style={{top: Y, left: X}}></div>
-          <div className={`w-[100dvw] sm:text-[18px] text-[14px] h-[40px] z-[500] fixed top-[95dvh] flex items-center justify-between px-3 sm:px-8 contactAppear`}>
-            <span className="text-white uppercase nohemiLight tracking-tight" onMouseEnter={toggleCursorHover} onMouseLeave={toggleCursorHover}>available now</span>
+          <div className={`w-[100dvw] sm:text-[18px] text-[14px] h-[40px] z-[700] fixed top-[95dvh] flex items-center justify-between px-3 sm:px-8 contactAppear`}>
+            <span className="text-white uppercase nohemiLight tracking-tight" onMouseEnter={toggleCursorHover} onMouseLeave={toggleCursorHover}>open to work</span>
             <div className="flex items-center gap-1">
               <FontAwesomeIcon icon={faCertificate} color={cursor.active ? "white" : "#1db954"} className="animate-spin"/>
               <span className="text-white cursor-pointer select-none uppercase nohemiExtraBold tracking-tight hover:text-[#1db954] transition-all"  onMouseEnter={toggleCursorHover} onMouseLeave={() => {
@@ -101,41 +119,41 @@ function LandingPage(props) {
               }} onMouseDown={toggleCursorActive} onMouseUp={toggleCursorActive}>contact me</span>
             </div>
           </div>
-          <div className="absolute top-0 w-full h-[100lvh] flex items-center justify-center spacePin">
-            <svg viewBox="130 0 1728 852" fill="none" preserveAspectRatio="xMidYMin slice" className="w-[100vw] h-[100lvh] relative">
+          <div className="absolute top-0 w-full h-[100lvh] flex items-center justify-center spacePin z-[500] pointer-events-none">
+            <svg viewBox="400 0 1728 852" fill="none" preserveAspectRatio="xMidYMin slice" className="w-[100vw] h-[100lvh] relative">
               <defs>
                   <filter id="displacementFilter2">
                       <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="1" result="noise"/>
                       <feDisplacementMap in="SourceGraphic" in2="noise" scale="50" xChannelSelector="R" yChannelSelector="G"/>
                   </filter>
                   <mask id="circleMask2">
-                      <circle cx="1000" cy="800" r="60" fill="white" className="displacement2"/>
+                      <circle cx="1280" cy="800" r="0" fill="white" className="displacement2"/>
                   </mask>
               </defs>
-              <image className="maskedObject" width="120%" height="120%" xlinkHref={planetearth}/>
+              <image className="maskedObject" width="140%" height="140%" xlinkHref={motherearth}/>
             </svg>       
           </div>
           <a target="_blank" href="https://github.com/enosintech">
-            <div className="absolute cursor-pointer group w-[80px] sm:w-[100px] lg:w-[300px] h-[40px] sm:h-[60px] sm:bottom-8 bottom-7 right-4 sm:right-14 border-[2.5px] overflow-hidden z-[600] bg-black border-black flex" onMouseEnter={toggleCursorHover} onMouseLeave={() => {
+            <div className="absolute cursor-pointer group w-[80px] sm:w-[100px] lg:w-[300px] h-[40px] sm:h-[60px] sm:bottom-8 bottom-7 right-4 sm:right-14 border-[2.5px] overflow-hidden z-[600] bg-white border-white flex" onMouseEnter={toggleCursorHover} onMouseLeave={() => {
                 if(cursor.hover === true){
                   toggleCursorHover();
                 }
               }} onMouseDown={toggleCursorActive} onMouseUp={toggleCursorActive}>
-              <div className="lg:w-[18%] w-[50%] h-full bg-white flex items-center justify-center">
-                <FontAwesomeIcon icon={faGithub} color="black" size="xl" className="relative z-[10000]"/>
+              <div className="lg:w-[18%] w-[50%] h-full bg-black flex items-center justify-center">
+                <FontAwesomeIcon icon={faGithub} color="white" size="xl" className="relative z-[10000]"/>
               </div>
               <div className="w-[65%] lg:flex h-full hidden items-center justify-center pl-5 relative z-[10000]">  
-                <span className="text-white lg:opacity-100 opacity-0 nohemiSemiBold uppercase">find me on github</span>
+                <span className="text-black lg:opacity-100 opacity-0 nohemiSemiBold uppercase">find me on github</span>
               </div>
               <div className="lg:w-[17%] w-[50%] h-full flex items-center justify-center lg:justify-start relative z-[10000]">
-                <img src={arrow} className="size-8 invert rotate-[-45deg]"/>
+                <img src={arrow} className="size-8 rotate-[-45deg]"/>
               </div>
               <div className="absolute w-0 group-hover:lg:w-[82%] group-hover:w-[50%] transition-all duration-300 right-0 h-full bg-[#1db954]"></div>
             </div>
           </a>
           <div className="absolute h-[55px] sm:bottom-6 bottom-5 sm:left-14 left-4 flex items-center gap-2 z-[10000]">
             <div className="w-0 h-full border-[#1db954] border animate-scroll transition-a;;"></div>
-            <div className="flex flex-col uppercase transition-all nohemiExtraBold text-[12px] md:text-[18px] lg:text-[23px] tracking-wide">
+            <div className="flex flex-col uppercase transition-all nohemiExtraBold text-white text-[12px] md:text-[18px] lg:text-[23px] tracking-wide">
               <span>scroll for</span>
               <span>lift off</span>
             </div>
@@ -146,14 +164,14 @@ function LandingPage(props) {
           </div>
           <div className="w-full h-[92%] xl:px-28 flex flex-col items-center justify-start gap-3 relative">
             <div className="w-[120px] h-[30px] flex items-center justify-evenly">
-              <FontAwesomeIcon icon={faHouse} color={tvVisible === "home" ? "#1db954" : "black"} size="lg" className="hover:opacity-75 active:opacity-50 cursor-pointer select-none" onClick={() => {
+              <FontAwesomeIcon icon={faHouse} color={tvVisible === "home" ? "#1db954" : "white"} size="lg" className="hover:opacity-75 active:opacity-50 cursor-pointer select-none" onClick={() => {
                 setTvVisible("home");
               }} onMouseEnter={toggleCursorHover} onMouseLeave={() => {
                 if(cursor.hover === true){
                   toggleCursorHover();
                 }
               }} onMouseDown={toggleCursorActive} onMouseUp={toggleCursorActive}/>
-              <FontAwesomeIcon icon={faTv} color={tvVisible === "tv" ? "#1db954" : "black"} className="text-[18px] hover:opacity-75 active:opacity-50 cursor-pointer select-none" onClick={() => {
+              <FontAwesomeIcon icon={faTv} color={tvVisible === "tv" ? "#1db954" : "white"} className="text-[18px] hover:opacity-75 active:opacity-50 cursor-pointer select-none" onClick={() => {
                 setTvVisible("tv")
               }} onMouseEnter={toggleCursorHover} onMouseLeave={() => {
                 if(cursor.hover === true){
@@ -161,8 +179,13 @@ function LandingPage(props) {
                 }
               }} onMouseDown={toggleCursorActive} onMouseUp={toggleCursorActive}/>
             </div>
-            <div className="w-fit h-[30px] bg-slate-100 shadow-md border-gray-300 rounded-full relative z-[10000] p-3 flex items-center justify-center nohemiBlack uppercase text-[13px]">Available Now</div>
-            <div className="md:w-[55%] lg:w-[45%] sm:w-[70%] w-[85%] h-[70%] overflow-hidden relative flex flex-col items-end">
+            <div className="w-fit h-[30px] shadow-md border-white border-[0.5px] rounded-full relative z-[10000] flex items-center justify-center nohemiBold uppercase text-[13px]">
+              <div className="w-[25px] h-full flex items-center justify-center">
+                <div className="w-[10px] h-[10px] bg-[#1db954] pingBoxShadow rounded-full"></div>
+              </div>
+              <span className="pr-3 py-1 text-white">open to work</span>
+            </div>
+            <div className="md:w-[55%] lg:w-[45%] sm:w-[70%] w-[85%] h-[70%] overflow-hidden relative flex flex-col items-end scalePin">
               {tvVisible === "tv"
               ?
                 <div className="w-full h-full bg-black rounded-2xl overflow-hidden">
@@ -196,16 +219,18 @@ function LandingPage(props) {
                           Video Format Not Supported
                         </video>
                       </div>
-                      <div className={`absolute z-[10000] text-[22px] left-10 bottom-8 w-fit h-fit flex flex-col text-white uppercase`}>
-                        <span className="nohemiBlack">enos nsamba</span>
-                        <span className="nohemiRegular">full stack developer</span>
+                      <div className="absolute bg-gradient-to-b from-black via-transparent top-0 to-black w-full h-full z-[8000]"></div>
+                      <div className="absolute bg-gradient-to-r from-black via-transparent top-0 to-black w-full h-full z-[8000]"></div>
+                      <div className={`absolute z-[10000] text-center text-[19px] left-0 right-0 mx-auto bottom-8 w-fit h-fit flex flex-col text-white uppercase`}>
+                        <span className="nohemiBlack text-[27px]">enos nsamba</span>
+                        <span className="nohemiRegular">front end developer</span>
                       </div>
                     </div>
                   </div>
                 </div>
               }
-              <div className="w-full h-[20%] text-[15px] sm:text-[18px] flex items-center justify-evenly z-[10500]">
-                <span className={`uppercase nohemiExtraLight tracking-tight ${contactVisible ? "opacity-0" : "opacity-100"} text-black transition-all cursor-pointer select-none hover:text-[#1db954]`} onMouseEnter={() => {
+              <div className="w-full h-[20%] text-[15px] sm:text-[17px] flex items-center justify-center gap-20 z-[10500]">
+                <span className={`uppercase nohemiThin tracking-tighter ${contactVisible ? "opacity-0" : "opacity-100"} text-white transition-all cursor-pointer select-none hover:text-[#1db954]`} onMouseEnter={() => {
                     setWorkVisible(true)
                     toggleCursorHover()
                 }} onMouseLeave={() => {
@@ -214,7 +239,7 @@ function LandingPage(props) {
                       toggleCursorHover();
                     }
                 }} onMouseDown={toggleCursorActive} onMouseUp={toggleCursorActive}>view my work</span>
-                <span className={`uppercase nohemiExtraLight tracking-tight ${workVisible ? "opacity-0" : "opacity-100"} text-black transition-all cursor-pointer select-none hover:text-[#1db954]`} onMouseEnter={() => {
+                <span className={`uppercase nohemiThin tracking-tighter ${workVisible ? "opacity-0" : "opacity-100"} text-white transition-all cursor-pointer select-none hover:text-[#1db954]`} onMouseEnter={() => {
                     setContactVisible(true)
                     toggleCursorHover();
                 }} onMouseLeave={() => {

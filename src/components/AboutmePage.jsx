@@ -67,7 +67,7 @@ function AboutmePage() {
       ScrollTrigger.create({
         trigger: ".aboutPin",
         start: "top top",
-        end: "bottom -100%",
+        end: "bottom -300%",
         pin: true
       })
 
@@ -88,7 +88,7 @@ function AboutmePage() {
   }, [])
   return (
     <>
-        <div className="w-full h-[100svh] bg-black relative flex flex-col">
+        <div className="w-full h-[100svh] bg-black relative flex flex-col z-[600]">
           <div className="w-full h-[200px] absolute top-[-100px] bg-gradient-to-b from-transparent via-50% via-black to-black contactAppearTrigger">
 
           </div>
@@ -162,8 +162,8 @@ function AboutmePage() {
             </div>
           </div>
         </div>
-        <div className="w-full h-[300svh] bg-black relative overflow-x-visible yieldTrigger" ref={component}>
-            <div className="w-full h-1/3 aboutPin flex items-center relative">
+        <div className="w-full h-[500svh] bg-black z-[600] relative overflow-x-hidden yieldTrigger" ref={component}>
+            <div className="w-full h-1/5 aboutPin flex items-center relative">
                 <div className="w-[150vw] min-w-[150vw] h-[75%] backdrop-blur-[3px] flex yieldLeft relative">
                     <div className="w-[33.33%] min-w-[33.33%] h-full flex items-center justify-end">
                         <div className="w-[55%] h-[93%] rounded-xl relative overflow-hidden">
@@ -197,7 +197,7 @@ function AboutmePage() {
                             </div>        
                         </div>
                     </div>
-                    <div className="w-[33.33%] min-w-[33.33%] h-full flex items-center justify-start">
+                    <div className="w-[33.33%]  min-w-[33.33%] h-full flex items-center justify-start">
                         <div className="w-[55%] h-[93%] flex flex-col text-white">
                             <div className="w-full h-1/3 flex flex-col">
                                 <span className="w-full h-[20%] flex items-center uppercase nohemiLight border-b-2 border-white">summary</span>
@@ -243,7 +243,28 @@ function AboutmePage() {
             </div>
         </div>
         <div className="w-full h-[100svh] bg-black relative flex items-center justify-center">
-          
+          <div className="h-full w-[25%] flex justify-center pt-20">
+            <div className="w-fit h-fit uppercase flex flex-col">
+                <span className="beckanr text-[55px] text-[#1db954]">key tools</span>
+                <span className="text-[50px] -translate-y-6 nohemiSemiBold text-white">& services</span>
+            </div>          
+          </div>
+          <div className="h-full w-[75%] relative">
+            <div className="w-full h-[80%] absolute bottom-0 flex flex-col items-center">
+                {abilities.map((ability, index) => (
+                    <div key={ability.id} index={index} className={`w-[95%] group px-2 relative transition-all hover:text-black text-white text-[30px] h-1/6 border-b border-gray-400 flex items-center justify-between`}>
+                        <div className="w-0 group-hover:w-full h-full bg-white absolute left-0 z-[0] transition-all"></div>
+                        <span className="nohemiLight relative z-[1]">{ability.text1}</span>
+                        <div className="flex items-center relative z-[1] gap-2">
+                            <span className="nohemiBold">{ability.text2}</span>
+                            <div className="w-[35px] h-[35px]">
+                                <img className="w-full h-full object-contain" alt="tool icon" src={ability.image2}/>
+                            </div>
+                        </div>
+                    </div>
+                ))}            
+            </div>       
+          </div>
         </div>
     </>
   )
@@ -283,43 +304,43 @@ const abilities = [
     {
         id:1,
         image1: frontend,
-        text1: "frontend design",
+        text1: "Frontend Design",
         image2: tailwind,
-        text2: "tailwind css",
+        text2: "Tailwind CSS",
     },
     {
         id:2,
         image1: backend,
-        text1: "backend design",
-        image2: mern,
-        text2: "mern stack",
+        text1: "Backend Design",
+        image2: node,
+        text2: "Node JS",
     },
     {
         id:3,
         image1: uxui,
-        text1: "ux/ui design",
+        text1: "UX/UI Design",
         image2: figma,
-        text2: "figma",
+        text2: "Figma",
     },
     {
         id:4,
         image1: webmobile,
-        text1: "web & mobile",
+        text1: "Web & Mobile",
         image2: react,
-        text2: "react/ native",
+        text2: "React/ Native",
     },
     {
         id:5,
         image1: quality,
-        text1: "quality assurance",
-        image2: typescript,
-        text2: "typescript",
+        text1: "Quality Assurance",
+        image2: javascript,
+        text2: "Javascript",
     },
     {
         id: 6,
         image1: documentation,
-        text1: "documentation",
+        text1: "Documentation",
         image2: python,
-        text2: "python",
+        text2: "Python",
     },
 ]

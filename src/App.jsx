@@ -53,13 +53,10 @@ function App({children}) {
     <CursorContextProvider>
       <div className="w-[100dvw] h-[60px] z-[10000] fixed top-0 flex items-center justify-between px-5 sm:px-8 md:px-10">
         <div className="w-fit h-fit">
-          <span className="nohemiBlack uppercase text-[14px] md:text-[16px] lg:text-[18px] text-white transition-all">enosintech</span>
+          <span className="nohemiBlack uppercase text-[14px] md:text-[16px] lg:text-[18px] text-white opacity-0 transition-all">enosintech</span>
         </div>
-        <div className="w-fit h-fit flex flex-col md:text-[18px] text-[14px] text-white nohemiLight translate-y-10">
-          <span>3:02 PM CAT</span>
-          <span>15.4155° S</span>
-          <span>28.2773° E</span>
-          <span>Lusaka  21.C</span>
+        <div className="w-fit h-fit flex flex-col md:text-[15px] text-[14px] text-white uppercase nohemiLight">
+          <span>lusaka, zm 9:22 am cat</span>
         </div>
       </div>
       <div className="w-[15px] h-[85svh] fixed left-2 lg:left-5 z-[10000] top-20 flex flex-col items-center overflow-visible scrollbar" ref={component}>
