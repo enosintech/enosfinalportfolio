@@ -30,8 +30,6 @@ function LandingPage(props) {
     const [ contactVisible, setContactVisible ] = useState(false);
     const [ tvVisible, setTvVisible ] = useState("home"); 
 
-    const component = useRef(null);
-
     const { X, Y } = useMousePosition();
     const [ cursor, setCursor ] = useContext(CursorContext);
 
@@ -43,68 +41,9 @@ function LandingPage(props) {
       setCursor(({active}) => ({ active: !active }))
     });
 
-    useEffect(() => {
-      let ctx = gsap.context(() => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".contactAppearTrigger",
-            toggleActions: "play none none reverse",
-          }
-        })
-
-        ScrollTrigger.create({
-          trigger: ".spacePin",
-          end: "bottom -225%",
-          pin: true,
-        })
-
-        ScrollTrigger.create({
-          trigger: ".scalePin",
-          start: "top 210px",
-          end: "bottom -200%",
-          pin: true,
-        })
-
-        gsap.fromTo(".scalePin", {
-          scale: 1,
-        }, {
-          scale: -2,
-          scrollTrigger: {
-            trigger: ".spacer",
-            scrub: true,
-          }
-        })
-
-        gsap.to(".displacement2", {
-          attr: {
-            r: 3000,
-          },
-          scrollTrigger: {
-            trigger: ".spacer",
-            scrub: true
-          }
-        })
-
-        gsap.set(".cursor", {
-          xPercent: -50, yPercent: -50
-        })
-
-        tl.fromTo(".contactAppear", {
-          opacity: 0,
-        }, {
-          opacity: 1,
-        })
-    
-      }, component)
-
-      return () => {
-        ctx.revert();
-      };
-    }, [tvVisible])
-
   return (
     <>
-        <div className="w-full bg-black h-[100svh] pt-[60px] relative flex items-end overflow-x-hidden" ref={component}>
+        <div className="w-full bg-black h-[100svh] pt-[60px] relative flex items-end overflow-x-hidden">
           <div className={`cursor sm:block hidden fixed left-0 rounded-full top-0 ${cursor.hover ? "w-[25px] h-[25px] border-4 bg-none border-red-500" : cursor.active ? "w-[15px] h-[15px] bg-red-500" : "bg-[#1db954] border-none w-[100px] h-[100px]"} z-[9999]  transition-all`} style={{top: Y, left: X}}></div>
           <div className={`w-[100dvw] sm:text-[18px] text-[14px] h-[40px] z-[700] fixed top-[95dvh] flex items-center justify-between px-3 sm:px-8 contactAppear`}>
             <span className="text-white uppercase nohemiLight tracking-tight" onMouseEnter={toggleCursorHover} onMouseLeave={toggleCursorHover}>open to work</span>

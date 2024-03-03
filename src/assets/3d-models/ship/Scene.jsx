@@ -7,7 +7,7 @@ Source: https://sketchfab.com/3d-models/discovery-space-shuttle-23c579b845e841c9
 Title: Discovery Space Shuttle
 */
 
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -15,22 +15,21 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 export function Model(props) {
   const { nodes, materials } = useGLTF('/ship/scene.gltf')
   const model = useRef(null);
-  const component = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
 
       ScrollTrigger.create({
-        trigger: ".shipTrigger1",
+        trigger: ".shipTrigger",
         start: "top bottom",
         end: "bottom bottom",
         onUpdate: (self) => {
-          if (model) {
-            model.current.rotation.y = -1.5 * 3.14 * self.progress;
+          if (model && self.progress <= 0.5) {
+            model.current.rotation.y = -3 * 3.14 * self.progress;
             model.current.rotation.x = 0;
-            model.current.position.x = -4 * self.progress;
-            model.current.position.y = -0.2 * self.progress;
-            model.current.position.z = 0.2 * self.progress
+            model.current.position.x = -8 * self.progress;
+            model.current.position.y = -0.4 * self.progress;
+            model.current.position.z = 0.4 * self.progress
           }
         }
       })

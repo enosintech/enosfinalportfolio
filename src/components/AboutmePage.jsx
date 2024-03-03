@@ -36,8 +36,6 @@ import node from "../assets/images/node.webp";
 import javascript from "../assets/images/javascript.webp";
 
 function AboutmePage() {
-  const component = useRef(null);
-  const spaceShip = useRef(null);
   const [ cursor, setCursor ] = useContext(CursorContext);
 
   const toggleCursorHover = useCallback(() => {
@@ -48,58 +46,8 @@ function AboutmePage() {
     setCursor(({active}) => ({ active: !active }))
   });
 
-  useEffect(() => {
-    let ctx = gsap.context(() => {
-        const imgs = gsap.utils.toArray(".motiv");
-        const next = 0.8;
-        const fade = 0.8;
-
-        gsap.set(imgs[0], {autoAlpha: 1})
-
-        const crossFade = () => {
-            gsap.timeline()
-            .to(imgs[0], {autoAlpha: 0, duration: fade})
-            .to(imgs[1], {autoAlpha: 1, duration: fade}, 0)
-
-            imgs.push(imgs.shift())
-
-            gsap.delayedCall(next, crossFade);
-        }
-
-        gsap.delayedCall(next, crossFade);
-
-      ScrollTrigger.create({
-        trigger: ".aboutPin",
-        start: "top top",
-        end: "bottom -300%",
-        pin: true
-      })
-
-      ScrollTrigger.create({
-        trigger: ".modelPin",
-        start: "top top",
-        bottom: "bottom -100%",
-        pin: true,
-      })
-
-      gsap.fromTo(".yieldLeft", {
-        xPercent: 0,
-      }, {
-        xPercent: -33,
-        scrollTrigger: {
-            trigger: ".yieldTrigger",
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-        }
-      })
-    }, component)
-
-    return () => ctx.revert();
-  }, [])
-
   return (
-    <div ref={component}>
+    <>
         <div className="w-full h-[100svh] bg-black relative flex flex-col z-[600]">
           <div className="w-full h-[200px] absolute top-[-100px] bg-gradient-to-b from-transparent via-50% via-black to-black contactAppearTrigger">
 
@@ -254,7 +202,8 @@ function AboutmePage() {
                 </div>
             </div>
         </div>
-        <div className="w-full h-[100svh] bg-black relative flex items-center justify-center shipTrigger1 overflow-y-visible">
+        <div className="w-full h-[100svh] bg-black relative flex items-center justify-center overflow-y-visible">
+          <div className="w-full h-[200svh] min-h-[200svh] top-0 absolute z-[-1] shipTrigger"></div>          
           <div className="w-full h-full top-0 absolute modelPin overflow-y-visible">
             <Canvas>
                 <ambientLight intensity={1.25}/>
@@ -285,7 +234,7 @@ function AboutmePage() {
             </div>       
           </div>
         </div>
-    </div>
+    </>
   )
 }
 
