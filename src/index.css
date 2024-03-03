@@ -147,9 +147,12 @@
     font-family: beckanr, serif;
 }
 
+body {
+    background-color: black;
+}
+
 .cursor {
     pointer-events: none;
-    transition: transform 0.1s;
 }
 
 .displacement {
@@ -321,10 +324,6 @@
 .purple {
     box-shadow: 2px 2px 20px 15px rgb(168, 85, 247);
     animation: purpleFloat 5s alternate infinite;
-}
-
-.pin-spacer {
-    pointer-events: none;
 }
 
 .pingBoxShadow {

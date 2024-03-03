@@ -52,6 +52,7 @@ function App({children}) {
 
       ScrollTrigger.create({
         trigger: ".spacePin",
+        start: "top top",
         end: "bottom -225%",
         pin: true,
       })

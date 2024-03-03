@@ -43,7 +43,7 @@ function LandingPage(props) {
 
   return (
     <>
-        <div className="w-full bg-black h-[100svh] pt-[60px] relative flex items-end overflow-x-hidden">
+        <div className="w-full h-[100svh] pt-[60px] relative flex items-end overflow-x-hidden">
           <div className={`cursor sm:block hidden fixed left-0 rounded-full top-0 ${cursor.hover ? "w-[25px] h-[25px] border-4 bg-none border-red-500" : cursor.active ? "w-[15px] h-[15px] bg-red-500" : "bg-[#1db954] border-none w-[100px] h-[100px]"} z-[9999]  transition-all`} style={{top: Y, left: X}}></div>
           <div className={`w-[100dvw] sm:text-[18px] text-[14px] h-[40px] z-[700] fixed top-[95dvh] flex items-center justify-between px-3 sm:px-8 contactAppear`}>
             <span className="text-white uppercase nohemiLight tracking-tight" onMouseEnter={toggleCursorHover} onMouseLeave={toggleCursorHover}>open to work</span>
@@ -58,7 +58,7 @@ function LandingPage(props) {
               }} onMouseDown={toggleCursorActive} onMouseUp={toggleCursorActive}>contact me</span>
             </div>
           </div>
-          <div className="absolute top-0 w-full h-[100lvh] flex items-center justify-center spacePin z-[500] pointer-events-none">
+          <div className="absolute top-0 w-full h-full flex items-center justify-center spacePin z-[20000] pointer-events-none">
             <svg viewBox="400 0 1728 852" fill="none" preserveAspectRatio="xMidYMin slice" className="w-[100vw] h-[100lvh] relative">
               <defs>
                   <filter id="displacementFilter2">
