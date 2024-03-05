@@ -44,8 +44,10 @@ function LandingPage(props) {
   return (
     <>
         <div className="w-full h-[100svh] pt-[60px] relative flex items-end overflow-x-hidden">
-          <div className={`cursor sm:block hidden fixed left-0 rounded-full top-0 ${cursor.hover ? "w-[25px] h-[25px] border-4 bg-none border-red-500" : cursor.active ? "w-[15px] h-[15px] bg-red-500" : "bg-[#1db954] border-none w-[100px] h-[100px]"} z-[9999]  transition-all`} style={{top: Y, left: X}}></div>
-          <div className={`w-[100dvw] sm:text-[18px] text-[14px] h-[40px] z-[700] fixed top-[95dvh] flex items-center justify-between px-3 sm:px-8 contactAppear`}>
+          <div className={`cursor sm:flex hidden fixed left-0 rounded-full top-0 ${cursor.hover ? "w-[15px] h-[15px] bg-[#1db954]" : cursor.active ? "w-[8px] h-[8px] bg-[#1db954]" : "border-2 border-[#1db954] w-[40px] h-[40px]"} z-[9999] transition-[width,height] items-center justify-center`} style={{top: Y, left: X}}>
+            <div className="w-[8px] h-[8px] rounded-full bg-[#1db954]"></div>
+          </div>
+          <div className={`w-[100dvw] sm:text-[18px] text-[14px] h-[40px] z-[700] fixed top-[95dvh] flex items-center justify-between px-3 sm:px-8 opacity-0 contactAppear contactDissappear`}>
             <span className="text-white uppercase nohemiLight tracking-tight" onMouseEnter={toggleCursorHover} onMouseLeave={toggleCursorHover}>open to work</span>
             <div className="flex items-center gap-1">
               <FontAwesomeIcon icon={faCertificate} color={cursor.active ? "white" : "#1db954"} className="animate-spin"/>
@@ -58,7 +60,7 @@ function LandingPage(props) {
               }} onMouseDown={toggleCursorActive} onMouseUp={toggleCursorActive}>contact me</span>
             </div>
           </div>
-          <div className="absolute top-0 w-full h-full flex items-center justify-center spacePin z-[20000] pointer-events-none">
+          <div className="absolute top-0 w-full h-full flex items-center justify-center spacePin z-[500] pointer-events-none">
             <svg viewBox="400 0 1728 852" fill="none" preserveAspectRatio="xMidYMin slice" className="w-[100vw] h-[100lvh] relative">
               <defs>
                   <filter id="displacementFilter2">
@@ -90,7 +92,7 @@ function LandingPage(props) {
               <div className="absolute w-0 group-hover:lg:w-[82%] group-hover:w-[50%] transition-all duration-300 right-0 h-full bg-[#1db954]"></div>
             </div>
           </a>
-          <div className="absolute h-[55px] sm:bottom-6 bottom-5 sm:left-14 left-4 flex items-center gap-2 z-[10000]">
+          <div className="absolute h-[55px] sm:bottom-6 bottom-5 sm:left-14 left-4 flex items-center gap-2 z-[10000] scrollAppear">
             <div className="w-0 h-full border-[#1db954] border animate-scroll transition-a;;"></div>
             <div className="flex flex-col uppercase transition-all nohemiExtraBold text-white text-[12px] md:text-[18px] lg:text-[23px] tracking-wide">
               <span>scroll for</span>
@@ -118,7 +120,7 @@ function LandingPage(props) {
                 }
               }} onMouseDown={toggleCursorActive} onMouseUp={toggleCursorActive}/>
             </div>
-            <div className="w-fit h-[30px] shadow-md border-white border-[0.5px] rounded-full relative z-[10000] flex items-center justify-center nohemiBold uppercase text-[13px]">
+            <div className="w-fit h-[30px] shadow-md border-white border-[0.5px] rounded-full relative flex items-center justify-center nohemiBold uppercase text-[13px]">
               <div className="w-[25px] h-full flex items-center justify-center">
                 <div className="w-[10px] h-[10px] bg-[#1db954] pingBoxShadow rounded-full"></div>
               </div>
@@ -133,7 +135,7 @@ function LandingPage(props) {
               :
                 <div className="w-full h-full flex">
                   <div className="w-full h-full rounded-2xl relative flex flex-col">
-                    <div className={`w-full h-full rounded-2xl absolute transition-all duration-200 z-[10500] overflow-hidden ${workVisible ? "opacity-100" : "opacity-0"}`}>
+                    <div className={`w-full h-full rounded-2xl absolute transition-all duration-200 overflow-hidden ${workVisible ? "opacity-100" : "opacity-0"}`}>
                       <img src={workPrompt} className="w-full h-full object-cover" alt="workPrompt"/>
                       <div className="w-fit h-fit flex flex-col p-3 text-white absolute top-5 left-5 uppercase nohemiBlack">
                         <span>1. BantuRide</span>

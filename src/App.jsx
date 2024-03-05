@@ -20,6 +20,7 @@ gsap.registerPlugin(ScrollTrigger);
 function App({children}) {
 
   const component = useRef(null);
+  const scrollBarRef = useRef(null);
   const [ contactVisible, setContactVisible ] = useState(false);
 
   const setContact = (state) => {
@@ -27,9 +28,8 @@ function App({children}) {
   }
 
   useEffect(() => {
-    const scrollBar = document.querySelector(".scrollbar");
 
-    const height = scrollBar?.clientHeight; 
+    const height = scrollBarRef?.current.clientHeight; 
 
     let ctx = gsap.context(() => {
       const imgs = gsap.utils.toArray(".motiv");
@@ -78,11 +78,32 @@ function App({children}) {
         pin: true,
       })
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".contactAppearTrigger",
-          toggleActions: "play none none reverse",
-        }
+      ScrollTrigger.create({
+        trigger: ".modelPin2",
+        start: "top top",
+        end: "bottom -100%",
+        pin: true
+      })
+
+      ScrollTrigger.create({
+        trigger: ".workPin",
+        start: "top top",
+        end: "bottom -300%",
+        pin: true
+      })
+
+      ScrollTrigger.create({
+        trigger: ".whyPin",
+        start: "top top",
+        end: "bottom -100%",
+        pin: true,
+      })
+
+      ScrollTrigger.create({
+        trigger: ".reviewPin",
+        start: "tpo top",
+        end: "bottom -500%",
+        pin: true,
       })
 
       gsap.fromTo(".yieldLeft", {
@@ -97,6 +118,18 @@ function App({children}) {
         }
       })
 
+      gsap.fromTo(".workYieldLeft", {
+        xPercent: 5,
+      }, {
+        xPercent: -85,
+        scrollTrigger: {
+          trigger: ".workYieldTrigger",
+          start: "top 300px",
+          end: "bottom +=200px",
+          scrub: true,
+      }
+      })
+
       gsap.fromTo(".scalePin", {
         scale: 1,
       }, {
@@ -104,6 +137,16 @@ function App({children}) {
         scrollTrigger: {
           trigger: ".spacer",
           scrub: true,
+        }
+      })
+
+      gsap.fromTo(".workScaleDown", {
+        scale: 1,
+      }, {
+        scale: 0,
+        scrollTrigger: {
+          trigger: ".workScaleDownTrigger",
+          scrub: true
         }
       })
 
@@ -120,7 +163,7 @@ function App({children}) {
       gsap.fromTo(".progress", {
         y: 0,
       }, {
-        y: height - 50,
+        y: height - 65,
         scrollTrigger: {
           trigger: "html",
           scrub: true,
@@ -131,11 +174,106 @@ function App({children}) {
         xPercent: -50, yPercent: -50
       })
 
-      tl.fromTo(".contactAppear", {
-        opacity: 0,
-      }, {
+      gsap.to(".contactAppear", {
         opacity: 1,
+        scrollTrigger: {
+          trigger: ".contactAppearTrigger",
+          toggleActions: "play none none reverse",
+        }
       })
+
+      gsap.fromTo(".scrollAppear", {
+        opacity: 1,
+      }, {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: ".spacer",
+          toggleActions: "play none none reverse"
+        }
+      })
+
+      gsap.fromTo(".stagger", {
+        yPercent: 140,
+        xPercent: 140
+      }, {
+        yPercent: 0,
+        xPercent: 0,
+        stagger: 0.4,
+        scrollTrigger: {
+          trigger: ".reviewTrigger",
+          start: "top center",
+          end: "bottom bottom",
+          scrub: true,
+        }
+      })
+
+      gsap.to(".backgroundColorChange", {
+        backgroundColor: "black",
+        scrollTrigger: {
+          trigger: ".spacer",
+        }
+      })
+
+      gsap.fromTo(".backgroundColorChange", {
+        backgroundColor: "black"
+      }, {
+        backgroundColor: "rgb(88, 28, 135)",
+        scrollTrigger: {
+          trigger: ".purpleTrigger",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom"
+        }
+      })
+
+      gsap.fromTo(".backgroundColorChange", {
+        backgroundColor: "rgb(88, 28, 135)"
+      }, {
+        backgroundColor: "rgb(22, 101, 52)",
+        scrollTrigger: {
+          trigger: ".greenTrigger",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom"
+        }
+      })
+
+      gsap.fromTo(".backgroundColorChange", {
+        backgroundColor: "rgb(22, 101, 52)"
+      }, {
+        backgroundColor: "rgb(127, 29, 29)",
+        scrollTrigger: {
+          trigger: ".redTrigger",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom"
+        }
+      })
+
+      gsap.fromTo(".backgroundColorChange", {
+        backgroundColor: "rgb(127, 29, 29)"
+      }, {
+        backgroundColor: "rgb(5, 46, 22)",
+        scrollTrigger: {
+          trigger: ".greenerTrigger",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom"
+        }
+      })
+
+      gsap.fromTo(".backgroundColorChange", {
+        backgroundColor: "rgb(5, 46, 22)"
+      }, {
+        backgroundColor: "black",
+        scrollTrigger: {
+          trigger: ".blackTrigger",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom"
+        }
+      })
+
     }, component)
 
     return (() => {
@@ -148,13 +286,13 @@ function App({children}) {
       <CursorContextProvider>
         <div className="w-[100dvw] h-[60px] z-[10000] fixed top-0 flex items-center justify-between px-5 sm:px-8 md:px-10">
           <div className="w-fit h-fit">
-            <span className="nohemiBlack uppercase text-[14px] md:text-[16px] lg:text-[18px] text-white opacity-0 transition-all">enosintech</span>
+            <span className="nohemiBlack uppercase text-[14px] md:text-[16px] lg:text-[18px] text-white contactAppear opacity-0 transition-all">enosintech</span>
           </div>
           <div className="w-fit h-fit flex flex-col md:text-[15px] text-[14px] text-white uppercase nohemiLight">
             <span>lusaka, zm 9:22 am cat</span>
           </div>
         </div>
-        <div className="w-[15px] h-[85svh] fixed left-2 lg:left-5 z-[10000] top-20 flex flex-col items-center overflow-visible scrollbar">
+        <div className="w-[15px] h-[85svh] fixed left-2 lg:left-5 z-[10000] top-20 flex flex-col items-center overflow-visible" ref={scrollBarRef}>
           <div className="w-fit h-fit overflow-visible absolute top-0 -left-[7px] progress flex flex-col">
               <div class="flameContainer">
                   <div class="flameRed flame"></div>

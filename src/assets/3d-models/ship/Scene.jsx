@@ -11,29 +11,116 @@ import React, { useRef, useEffect, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useFrame } from '@react-three/fiber';
 
 export function Model(props) {
   const { nodes, materials } = useGLTF('/ship/scene.gltf')
+  const tl = useRef(null)
+  const tl2 = useRef(null);
   const model = useRef(null);
+  const [ scrollOffset, setScrollOffset ] = useState(0); 
+  const [ scrollOffset2, setScrollOffset2 ] = useState(0); 
+
+  useFrame(() => {
+    tl.current.seek((scrollOffset) * tl.current.duration());
+  })
+
+  useFrame(() => {
+    tl2.current.seek((scrollOffset2) * tl2.current.duration());
+  })
 
   useEffect(() => {
     let ctx = gsap.context(() => {
+
+      tl.current = gsap.timeline();
+      tl2.current = gsap.timeline();
 
       ScrollTrigger.create({
         trigger: ".shipTrigger",
         start: "top bottom",
         end: "bottom bottom",
         onUpdate: (self) => {
-          if (model && self.progress <= 0.5) {
-            model.current.rotation.y = -3 * 3.14 * self.progress;
-            model.current.rotation.x = 0;
-            model.current.position.x = -8 * self.progress;
-            model.current.position.y = -0.4 * self.progress;
-            model.current.position.z = 0.4 * self.progress
-          }
+          setScrollOffset(self.progress);
         }
       })
 
+      ScrollTrigger.create({
+        trigger: ".shipTrigger2",
+        start: "top bottom",
+        end: "bottom bottom",
+        onUpdate: (self) => {
+          setScrollOffset2(self.progress);
+        }
+      })
+
+      tl.current.to(
+        model.current.scale, {
+          x: 2.5,
+          y: 2.5,
+          z: 2.5,
+        }
+      )
+
+      tl.current.to(
+        model.current.rotation, {
+          y: -1.5 * 3.14,
+          x: 0,
+        }
+      )
+
+      tl.current.to(
+        model.current.position, {
+          x: -4,
+          y: -0.2,
+          z: 0.2,
+        }
+      )
+
+      tl.current.to(
+        model.current.scale, {
+          x: 2,
+          y: 2,
+          z: 2,
+        }
+      )
+
+      tl.current.to(
+        model.current.position, {
+          x: -3,
+          y: 1,
+          z: 0.8,
+        }
+      )
+
+      tl.current.to(
+        model.current.rotation, {
+          y: 8,
+          x: 0,
+        }
+      )
+
+      tl.current.to(
+        model.current.position, {
+          x: 1.5,
+          y: 1,
+          z: 0.8,
+        }
+      )
+
+      tl.current.to(
+        model.current.rotation, {
+          y: 5.5,
+          x: 0,
+        }
+      )
+
+      tl.current.to(
+        model.current.scale, {
+          x: 1.3,
+          y: 1.3,
+          z: 1.3,
+        }
+      )
     },)
 
     return () => ctx.revert();
@@ -41,7 +128,88 @@ export function Model(props) {
 
   return (
     <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 3]} scale={2.5} position={[0, 0, 0]} ref={model}>
+      <group rotation={[-Math.PI / 2, 0, 3]} position={[0, 0, 0]} ref={model}>
+        <group rotation={[Math.PI / 2, 0, 0]}>
+          <mesh geometry={nodes.defaultMaterial.geometry} material={materials.Transbordador_Slot__6} />
+          <mesh geometry={nodes.defaultMaterial_1.geometry} material={materials.Metal_Detalle} />
+          <mesh geometry={nodes.defaultMaterial_2.geometry} material={materials.Coraza} />
+          <mesh geometry={nodes.defaultMaterial_3.geometry} material={materials.Cristal} />
+          <mesh geometry={nodes.defaultMaterial_4.geometry} material={materials.Metal_Base} />
+        </group>
+      </group>
+    </group>
+  )
+}
+
+export function Model2(props) {
+  const { nodes, materials } = useGLTF('/ship/scene.gltf')
+  const tl = useRef(null)
+  const model = useRef(null);
+  const [ scrollOffset, setScrollOffset ] = useState(0); 
+
+  useFrame(() => {
+    tl.current.seek((scrollOffset) * tl.current.duration());
+  })
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+
+      tl.current = gsap.timeline();
+
+      ScrollTrigger.create({
+        trigger: ".shipTrigger2",
+        start: "top bottom",
+        end: "bottom bottom",
+        onUpdate: (self) => {
+          setScrollOffset(self.progress);
+        }
+      })
+
+      tl.current.to(
+        model.current.scale, {
+          x: 2,
+          y: 2,
+          z: 2,
+        }
+      )
+
+      tl.current.to(
+        model.current.rotation, {
+          y: 6,
+          x: 0,
+        }
+      )
+
+      tl.current.to(
+        model.current.position, {
+          x: 4,
+          y: 1,
+          z: 0.8,
+        }
+      )
+
+      tl.current.to(
+        model.current.rotation, {
+          y: 11.5,
+          x: 0,
+        }
+      )
+
+      tl.current.to(
+      model.current.position, {
+        x: 2,
+        y: -0.2,
+        z: 2,
+      }
+    )
+    },)
+
+    return () => ctx.revert();
+  }, [])
+
+  return (
+    <group {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 3]} position={[0, 0, 0]} ref={model}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <mesh geometry={nodes.defaultMaterial.geometry} material={materials.Transbordador_Slot__6} />
           <mesh geometry={nodes.defaultMaterial_1.geometry} material={materials.Metal_Detalle} />

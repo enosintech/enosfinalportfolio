@@ -124,7 +124,7 @@ function AboutmePage() {
         </div>
         <div className="w-full h-[500svh] bg-black z-[600] relative overflow-x-hidden yieldTrigger">
             <div className="w-full h-1/5 aboutPin flex items-center relative">
-                <div className="w-[150vw] min-w-[150vw] h-[75%] backdrop-blur-[3px] flex yieldLeft relative">
+                <div className="w-[150vw] min-w-[150vw] h-[75%] flex yieldLeft relative">
                     <div className="w-[33.33%] min-w-[33.33%] h-full flex items-center justify-end">
                         <div className="w-[55%] h-[93%] rounded-xl relative overflow-hidden">
                             <div className="w-full h-full absolute motiv">
@@ -203,8 +203,8 @@ function AboutmePage() {
             </div>
         </div>
         <div className="w-full h-[100svh] bg-black relative flex items-center justify-center overflow-y-visible">
-          <div className="w-full h-[200svh] min-h-[200svh] top-0 absolute z-[-1] shipTrigger"></div>          
-          <div className="w-full h-full top-0 absolute modelPin overflow-y-visible">
+          <div className="w-full h-[300svh] absolute z-[-1] top-0 shipTrigger"></div>
+          <div className="w-full h-full top-0 absolute modelPin overflow-y-visible z-[500] pointer-events-none">
             <Canvas>
                 <ambientLight intensity={1.25}/>
                     <Model />
@@ -218,7 +218,7 @@ function AboutmePage() {
             </div>        
           </div>
           <div className="h-full w-[75%] relative">
-            <div className="w-full h-[80%] absolute bottom-0 flex flex-col items-center">
+            <div className="w-full h-[80%] absolute bottom-0 flex flex-col items-center z-[600]">
                 {abilities.map((ability, index) => (
                     <div key={ability.id} index={index} className={`w-[95%] group px-2 relative transition-all hover:text-black text-white text-[30px] h-1/6 border-b border-gray-400 flex items-center justify-between`}>
                         <div className="w-0 group-hover:w-full h-full bg-white absolute left-0 z-[0] transition-all"></div>
