@@ -48,10 +48,10 @@ function LandingPage(props) {
             <div className="w-[8px] h-[8px] rounded-full bg-[#1db954]"></div>
           </div>
           <div className={`w-[100dvw] sm:text-[18px] text-[14px] h-[40px] z-[700] fixed top-[95dvh] flex items-center justify-between px-3 sm:px-8 opacity-0 contactAppear contactDissappear`}>
-            <span className="text-white uppercase nohemiLight tracking-tight" onMouseEnter={toggleCursorHover} onMouseLeave={toggleCursorHover}>open to work</span>
-            <div className="flex items-center gap-1">
-              <FontAwesomeIcon icon={faCertificate} color={cursor.active ? "white" : "#1db954"} className="animate-spin"/>
-              <span className="text-white cursor-pointer select-none uppercase nohemiExtraBold tracking-tight hover:text-[#1db954] transition-all"  onMouseEnter={toggleCursorHover} onMouseLeave={() => {
+            <span className="text-white uppercase nohemiLight tracking-tight opacityGone" onMouseEnter={toggleCursorHover} onMouseLeave={toggleCursorHover}>open to work</span>
+            <div className="flex items-center gap-1 opacityGrow group">
+              <FontAwesomeIcon icon={faCertificate} className="animate-spin text-[#1db954] group-hover:text-white transition-all"/>
+              <span className="text-white cursor-pointer select-none uppercase nohemiExtraBold tracking-tight group-hover:text-[#1db954] transition-all"  onMouseEnter={toggleCursorHover} onMouseLeave={() => {
                 if(cursor.hover === true){
                   toggleCursorHover();
                 }

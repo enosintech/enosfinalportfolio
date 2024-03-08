@@ -128,9 +128,9 @@ function MarsPage() {
         <div className="">
             <span className="text-white uppercase text-[50px] nohemiExtraBold">but while you're here,</span>
         </div>
-        <div className="w-fit h-[350px] -translate-y-[6%] -translate-x-2 relative group z-[500] flex items-center pt-20">
-            <span className="uppercase text-white text-[400px] nohemiBlack group-hover:text-[#1db954] transition-all duration-300">hmu</span>
-            <span className="absolute bottom-60 -right-28 rotate-[-15deg] font-ds text-[50px] group-hover:text-white text-[#1db954] transition-all duration-300">hit me up</span>
+        <div className="w-fit h-[350px] -translate-y-[6%] -translate-x-2 relative z-[500] flex items-center pt-20">
+            <span className="uppercase text-white text-[400px] nohemiBlack transition-all duration-300">hmu</span>
+            <span className="absolute bottom-60 -right-28 rotate-[-15deg] font-ds text-[50px] text-[#1db954] transition-all duration-300">hit me up</span>
         </div>
         <div className="w-fit h-fit text-[30px] text-white nohemiRegular">
             <span>I am open to <span className="text-[#1db954]">Full Time</span> and <span className="text-[#1db954]">Freelance</span> roles.</span>

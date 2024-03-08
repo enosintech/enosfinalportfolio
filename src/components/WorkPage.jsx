@@ -4,6 +4,9 @@ import WebsiteWorkComponent from "./WebsiteWorkComponent";
 import about3 from "../assets/images/about3.webp";
 import spaceImage1 from "../assets/images/spaceImage1.webp";
 import arrow from "../assets/icons/arrow.png";
+import workPic from "../assets/images/workPic.webp";
+import workPrompt from '../assets/images/workPrompt.webp';
+import workBackground from "../assets/images/workBackground.webp";
 
 import astronautInSpace from "../assets/videos/astronautinspace.mp4";
 
@@ -44,7 +47,7 @@ function WorkPage() {
             </div>
           </div>
         </div>
-        <div className="backgroundColorChange">
+        <div className="">
           <div className="w-full h-[100svh] flex items-center justify-center">
             <div className="w-fit h-fit flex flex-col items-center relative">
               <span className="nohemiBlack z-10 text-gray-400 text-[14px] sm:text-[20px] tracking-wider uppercase">upcoming</span>
@@ -53,56 +56,97 @@ function WorkPage() {
                   <span className="italic">e</span>
                   <span>l</span>
                   <span className="italic">e</span>
-                  <span>ct</span>
-                  <span> proj</span>
+                  <span>ct </span>
+                  <span>proj</span>
                   <span className="italic">e</span>
                   <span>cts</span>
               </div>
             </div>
           </div>
-          <div className="w-full h-[100svh] flex items-center justify-center purpleTrigger">
-            <WebsiteWorkComponent />
-          </div> 
-          <div className="w-full h-[100svh] flex items-center justify-center greenTrigger">
-            <MobileWorkComponent />
-          </div>
-          <div className="w-full h-[100svh] flex items-center justify-center redTrigger">
-            <WebsiteWorkComponent />
-          </div>
-          <div className="w-full h-[100svh] flex items-center justify-center greenerTrigger">
-            <WebsiteWorkComponent />
-          </div>
-          <div className="w-full h-[500svh] relative workYieldTrigger overflow-x-hidden">
-            <div className="w-full h-1/5 workPin flex items-center blackTrigger">
-              <div className="w-[425vw] min-w-[425vw] h-[80%] workYieldLeft flex relative">
-                <div className="w-[20%] min-w-[20%] h-full flex items-center justify-center">
-                  <div className="w-[85%] h-[85%] rounded-md bg-white">
-
+          <div className="w-full h-[700svh] relative workYieldTrigger">
+            <div className="w-full h-[100svh] workPin absolute top-0 flex justify-center items-end">
+              <div className="h-[90%] rounded-t-[50px] relative widthGrow widthShrink overflow-hidden">
+                <img className="absolute top-0 w-full h-full object-cover z-[-1]" alt="work Background" src={workBackground}/>
+                <div className="w-[675vw] h-full flex workYield backdrop-blur-xl vanish"> 
+                  <div className="w-[11.11%] min-w-[11.11%] h-full flex flex-col text-white pt-20 px-20 relative">
+                    <span className="uppercase nohemiExtraBold text-[22px]">my work</span>
+                    <div className="flex flex-col nohemiThin text-[40px] mt-5">
+                      <span>1. MakeupbyRam</span>
+                      <span>2. BantuRide</span>
+                      <span>3. ZedCart</span>
+                      <span>4. The Evolution of Cars</span>
+                      <span>5. Meal Rocket</span>
+                      <span>6. Tesla Clone</span>
+                      <span>7. For Chisanga</span>
+                      <span>8. Spotify Clone</span>
+                    </div>
+                    <div className="absolute top-40 right-20 w-[400px]">
+                      <p className="uppercase text-[13px] righttoleft nohemiRegular">listed here are some professional as well as personal projects I have carried out. My professional projects cannot be viewed on github as they are private repositories, my learning projects however, can</p>
+                    </div>
+                    <div className="absolute bottom-14 right-20 w-[400px] h-[400px] rounded-2xl overflow-hidden">
+                      <img src={workPrompt} alt="my work" className="w-full h-full object-cover"/>
+                    </div>
                   </div>
-                </div>
-                <div className="w-[20%] min-w-[20%] h-full flex items-center">
-                  <div className="w-[85%] h-[85%] rounded-md bg-white">
-
+                  <div className="w-[11.11%] min-w-[11.11%] h-full flex items-end justify-center relative">
+                    <div className="w-[80%] h-[10%] absolute top-0 flex items-center justify-between text-white uppercase px-5">
+                      <span className="nohemiLight">1/8</span>
+                      <span className="nohemiBlack">professional project</span>
+                    </div>
+                    <WebsiteWorkComponent />
                   </div>
-                </div>
-                <div className="w-[20%] min-w-[20%] h-full flex items-center">
-                  <div className="w-[85%] h-[85%] rounded-md bg-white">
-
+                  <div className="w-[11.11%] min-w-[11.11%] h-full flex items-end justify-center relative">
+                    <div className="w-[80%] h-[10%] absolute top-0 flex items-center justify-between text-white uppercase px-5">
+                      <span className="nohemiLight">1/8</span>
+                      <span className="nohemiBlack">professional project</span>
+                    </div>
+                    <WebsiteWorkComponent />
                   </div>
-                </div>
-                <div className="w-[20%] min-w-[20%] h-full flex items-center">
-                  <div className="w-[85%] h-[85%] rounded-md bg-white">
-
+                  <div className="w-[11.11%] min-w-[11.11%] h-full flex items-end justify-center relative">
+                    <div className="w-[80%] h-[10%] absolute top-0 flex items-center justify-between text-white uppercase px-5">
+                      <span className="nohemiLight">1/8</span>
+                      <span className="nohemiBlack">professional project</span>
+                    </div>
+                    <WebsiteWorkComponent />
                   </div>
-                </div>
-                <div className="w-[20%] min-w-[20%] h-full flex items-center">
-                  <div className="w-[85%] h-[85%] rounded-md bg-white">
-
+                  <div className="w-[11.11%] min-w-[11.11%] h-full flex items-end justify-center relative">
+                    <div className="w-[80%] h-[10%] absolute top-0 flex items-center justify-between text-white uppercase px-5">
+                      <span className="nohemiLight">1/8</span>
+                      <span className="nohemiBlack">professional project</span>
+                    </div>
+                    <WebsiteWorkComponent />
+                  </div>
+                  <div className="w-[11.11%] min-w-[11.11%] h-full flex items-end justify-center relative">
+                    <div className="w-[80%] h-[10%] absolute top-0 flex items-center justify-between text-white uppercase px-5">
+                      <span className="nohemiLight">1/8</span>
+                      <span className="nohemiBlack">professional project</span>
+                    </div>
+                    <WebsiteWorkComponent />
+                  </div>
+                  <div className="w-[11.11%] min-w-[11.11%] h-full flex items-end justify-center relative">
+                    <div className="w-[80%] h-[10%] absolute top-0 flex items-center justify-between text-white uppercase px-5">
+                      <span className="nohemiLight">1/8</span>
+                      <span className="nohemiBlack">professional project</span>
+                    </div>
+                    <WebsiteWorkComponent />
+                  </div>
+                  <div className="w-[11.11%] min-w-[11.11%] h-full flex items-end justify-center relative">
+                    <div className="w-[80%] h-[10%] absolute top-0 flex items-center justify-between text-white uppercase px-5">
+                      <span className="nohemiLight">1/8</span>
+                      <span className="nohemiBlack">professional project</span>
+                    </div>
+                    <WebsiteWorkComponent />
+                  </div>
+                  <div className="w-[11.11%] min-w-[11.11%] h-full flex items-end justify-center relative">
+                    <div className="w-[80%] h-[10%] absolute top-0 flex items-center justify-between text-white uppercase px-5">
+                      <span className="nohemiLight">1/8</span>
+                      <span className="nohemiBlack">professional project</span>
+                    </div>
+                    <WebsiteWorkComponent />
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </div> 
         </div>
         <div className="w-full h-[300svh] flex flex-col items-end relative">
           <div className="w-full h-full space overflow-y-hidden absolute top-0 z-[-1]">

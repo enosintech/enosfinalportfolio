@@ -88,7 +88,7 @@ function App({children}) {
       ScrollTrigger.create({
         trigger: ".workPin",
         start: "top top",
-        end: "bottom -300%",
+        end: "bottom -500%",
         pin: true
       })
 
@@ -118,16 +118,16 @@ function App({children}) {
         }
       })
 
-      gsap.fromTo(".workYieldLeft", {
-        xPercent: 5,
+      gsap.fromTo(".workYield", {
+        xPercent: 0,
       }, {
-        xPercent: -85,
+        xPercent: -90,
         scrollTrigger: {
           trigger: ".workYieldTrigger",
-          start: "top 300px",
-          end: "bottom +=200px",
+          start: "top top",
+          end: "bottom top",
           scrub: true,
-      }
+        }
       })
 
       gsap.fromTo(".scalePin", {
@@ -182,6 +182,24 @@ function App({children}) {
         }
       })
 
+      gsap.to(".opacityGone", {
+        opacity: 0,
+        duration: 0.3,
+        scrollTrigger: {
+          trigger: ".opacityTrigger",
+          toggleActions: "play none none reverse"
+        }
+      })
+
+      gsap.to(".opacityGrow", {
+        scale: 2,
+        x: -100,
+        scrollTrigger: {
+          trigger: ".opacityTrigger",
+          scrub: true,
+        }
+      })
+
       gsap.fromTo(".scrollAppear", {
         opacity: 1,
       }, {
@@ -207,70 +225,53 @@ function App({children}) {
         }
       })
 
-      gsap.to(".backgroundColorChange", {
-        backgroundColor: "black",
+      gsap.fromTo(".widthGrow", {
+        width: "0%",
+      }, {
+        width: "85%",
         scrollTrigger: {
-          trigger: ".spacer",
+          trigger: ".workPin",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
         }
       })
 
-      gsap.fromTo(".backgroundColorChange", {
-        backgroundColor: "black"
+      gsap.fromTo(".widthGrow", {
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
       }, {
-        backgroundColor: "rgb(88, 28, 135)",
+        borderBottomLeftRadius: 50,
+        borderBottomRightRadius: 50,
         scrollTrigger: {
-          trigger: ".purpleTrigger",
+          trigger: ".workYieldTrigger",
+          start: "bottom 120%",
           scrub: true,
-          start: "top bottom",
-          end: "bottom bottom"
         }
       })
 
-      gsap.fromTo(".backgroundColorChange", {
-        backgroundColor: "rgb(88, 28, 135)"
+      gsap.fromTo(".widthShrink", {
+        width: "85%",
+        height: "90%",
       }, {
-        backgroundColor: "rgb(22, 101, 52)",
+        width: "0%",
+        height: "0%",
         scrollTrigger: {
-          trigger: ".greenTrigger",
+          trigger: ".whyPin",
           scrub: true,
           start: "top bottom",
-          end: "bottom bottom"
         }
       })
 
-      gsap.fromTo(".backgroundColorChange", {
-        backgroundColor: "rgb(22, 101, 52)"
+      gsap.fromTo(".vanish", {
+        opacity: 1,
       }, {
-        backgroundColor: "rgb(127, 29, 29)",
+        opacity: 0,
+        duration: 0.2,
         scrollTrigger: {
-          trigger: ".redTrigger",
-          scrub: true,
+          trigger: ".whyPin",
           start: "top bottom",
-          end: "bottom bottom"
-        }
-      })
-
-      gsap.fromTo(".backgroundColorChange", {
-        backgroundColor: "rgb(127, 29, 29)"
-      }, {
-        backgroundColor: "rgb(5, 46, 22)",
-        scrollTrigger: {
-          trigger: ".greenerTrigger",
-          scrub: true,
-          start: "top bottom",
-          end: "bottom bottom"
-        }
-      })
-
-      gsap.fromTo(".backgroundColorChange", {
-        backgroundColor: "rgb(5, 46, 22)"
-      }, {
-        backgroundColor: "black",
-        scrollTrigger: {
-          trigger: ".blackTrigger",
-          scrub: true,
-          start: "top bottom",
-          end: "bottom bottom"
+          toggleActions: "play none none reverse",
         }
       })
 
