@@ -59,7 +59,7 @@ function App({children}) {
 
       ScrollTrigger.create({
         trigger: ".scalePin",
-        start: "top 210px",
+        start: "top top",
         end: "bottom -200%",
         pin: true,
       })
@@ -94,6 +94,13 @@ function App({children}) {
 
       ScrollTrigger.create({
         trigger: ".whyPin",
+        start: "top top",
+        end: "bottom -100%",
+        pin: true,
+      })
+
+      ScrollTrigger.create({
+        trigger: ".widePin",
         start: "top top",
         end: "bottom -100%",
         pin: true,
@@ -257,7 +264,7 @@ function App({children}) {
         width: "0%",
         height: "0%",
         scrollTrigger: {
-          trigger: ".whyPin",
+          trigger: ".reviewPin",
           scrub: true,
           start: "top bottom",
         }
@@ -267,11 +274,34 @@ function App({children}) {
         opacity: 1,
       }, {
         opacity: 0,
-        duration: 0.2,
+        duration: 0.6,
         scrollTrigger: {
-          trigger: ".whyPin",
+          trigger: ".reviewPin",
           start: "top bottom",
           toggleActions: "play none none reverse",
+        }
+      })
+
+      gsap.to(".makeWide", {
+        width: "40%",
+        scrollTrigger: {
+          trigger: ".makeWideTrigger",
+          scrub: true,
+        }
+      })
+
+      gsap.fromTo(".makeWider", {
+        width: "0%",
+        height: "95%",
+        borderRadius: 16
+      }, {
+        width :"100%",
+        height: "100%",
+        borderRadius: 0,
+        scrollTrigger: {
+          trigger: ".makeWiderTrigger",
+          scrub: true,
+          end: "top 50px"
         }
       })
 
@@ -287,7 +317,7 @@ function App({children}) {
       <CursorContextProvider>
         <div className="w-[100dvw] h-[60px] z-[10000] fixed top-0 flex items-center justify-between px-5 sm:px-8 md:px-10">
           <div className="w-fit h-fit">
-            <span className="nohemiBlack uppercase text-[14px] md:text-[16px] lg:text-[18px] text-white contactAppear opacity-0 transition-all">enosintech</span>
+            <span className="nohemiBlack uppercase text-[14px] md:text-[16px] lg:text-[18px] text-white opacity-0 transition-all">enosintech</span>
           </div>
           <div className="w-fit h-fit flex flex-col md:text-[15px] text-[14px] text-white uppercase nohemiLight">
             <span>lusaka, zm 9:22 am cat</span>

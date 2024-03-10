@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -94,7 +94,9 @@ function MarsPage() {
             <div className="w-full h-full top-0 absolute modelPin2 overflow-y-visible z-[500] pointer-events-none">
                 <Canvas>
                     <ambientLight intensity={1.25}/>
-                        <Model2 />
+                        <Suspense fallback={null}>
+                            <Model2 />
+                        </Suspense>
                     <OrbitControls enableZoom={false} enableRotate={false}/>
                 </Canvas>       
             </div> 

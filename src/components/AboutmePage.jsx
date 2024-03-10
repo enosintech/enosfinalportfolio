@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAsterisk } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useRef, useContext, useCallback } from "react";
+import { useEffect, useRef, useContext, useCallback, Suspense } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { Canvas } from "@react-three/fiber";
@@ -207,7 +207,9 @@ function AboutmePage() {
           <div className="w-full h-full top-0 absolute modelPin overflow-y-visible z-[500] pointer-events-none">
             <Canvas>
                 <ambientLight intensity={1.25}/>
-                    <Model />
+                    <Suspense fallback={null}>
+                        <Model />
+                    </Suspense>
                 <OrbitControls enableZoom={false} enableRotate={false}/>
             </Canvas>       
           </div>          
@@ -307,7 +309,7 @@ const abilities = [
     {
         id: 6,
         image1: documentation,
-        text1: "Documentation",
+        text1: "Automation",
         image2: python,
         text2: "Python",
     },

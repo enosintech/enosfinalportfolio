@@ -148,43 +148,6 @@ function WorkPage() {
             </div>
           </div> 
         </div>
-        <div className="w-full h-[300svh] flex flex-col items-end relative">
-          <div className="w-full h-full space overflow-y-hidden absolute top-0 z-[-1]">
-            <div className="particle"></div> 
-            <div className="particle"></div>
-            <div className="particle"></div>
-            <div className="particle"></div>
-          </div>
-          <div className="w-1/2 h-1/3 absolute top-0 left-0 whyPin flex items-center justify-center">
-            <div className="w-[50%] h-[40%] flex justify-center gap-5">
-              <div className="w-0 h-full border-2 border-[#1db954]"></div>
-              <div className="flex flex-col w-[80%] h-full uppercase slussenBlackExp text-white text-[80px] -translate-y-3">
-                <span>why</span>
-                <span>hire</span>
-                <span className="text-[#1db954]">enos</span>
-                <div className="flex gap-2 items-center text-center w-full">
-                  <span className="text-white nohemiLight uppercase text-[13px]">find all my work on github</span>
-                  <img src={arrow} className="size-5 invert rotate-[-45deg]"/>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="w-1/2 h-1/3 flex items-center justify-center">
-            <div className="w-[50%] h-[40%] flex justify-center bg-yellow-500">
-              
-            </div>
-          </div>
-          <div className="w-1/2 h-1/3 flex items-center justify-center">
-            <div className="w-[50%] h-[40%] flex justify-center bg-purple-500">
-              
-            </div>
-          </div>
-          <div className="w-1/2 h-1/3 flex items-center justify-center">
-            <div className="w-[50%] h-[40%] flex justify-center bg-red-500">
-              
-            </div>
-          </div>
-        </div>
         <div className="w-full h-[500svh] reviewTrigger relative z-[9]">
           <div className="w-full h-1/5 absolute top-0 reviewPin workScaleDown flex">
             <div className="w-1/2 h-full flex flex-col pt-[60px] translate-x-[8%]">
