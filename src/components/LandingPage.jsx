@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useContext, useCallback } from "react";
+import { useEffect, useRef, useState, useContext, useCallback, Suspense } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -7,14 +7,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowRight, faCertificate, faHouse, faTv, faVolumeHigh } from "@fortawesome/free-solid-svg-icons";
 import { math, random } from "canvas-sketch-util";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 
 import { CursorContext } from "../utils/CursorContextProvider.jsx";
 import useMousePosition from "../hooks/useMousePosition.js";
+import { Model } from "../assets/3d-models/astronaut3/Scene.jsx";
 
 import LatestBlogsComponent from "../components/LatestBlogsComponent.jsx";
 
 import space from "../assets/videos/space.mp4";
 import enosVideo from "../assets/videos/enos.mp4";
+import floating from "../assets/videos/floating.mp4";
 
 import earth from "../assets/images/earth.webp";
 import motherearth from "../assets/images/motherearth.webp";
@@ -43,73 +47,52 @@ function LandingPage(props) {
 
   return (
     <>
-      <div className="w-full h-[100svh] relative flex items-end overflow-x-hidden">
+      <div className="w-full h-[200svh] relative flex flex-col overflow-x-hidden">
         <div className={`cursor sm:flex hidden fixed left-0 rounded-full top-0 ${cursor.hover ? "w-[15px] h-[15px] bg-[#1db954]" : cursor.active ? "w-[8px] h-[8px] bg-[#1db954]" : "border-2 border-[#1db954] w-[40px] h-[40px]"} z-[9999] transition-[width,height] items-center justify-center`} style={{top: Y, left: X}}>
           <div className="w-[8px] h-[8px] rounded-full bg-[#1db954]"></div>
         </div>
-        <div className={`w-[100dvw] sm:text-[18px] text-[14px] h-[40px] z-[700] fixed top-[95dvh] flex items-center justify-between px-3 sm:px-8 opacity-0 contactAppear contactDissappear`}>
-          <span className="text-white uppercase nohemiLight tracking-tight opacityGone" onMouseEnter={toggleCursorHover} onMouseLeave={toggleCursorHover}>open to work</span>
+        <div className={`w-[100dvw] sm:text-[18px] text-[14px] h-[40px] z-[700] fixed top-[95dvh] flex items-center justify-end px-3 sm:px-8 opacity-0 contactAppear contactDissappear`}>
           <div className="flex items-center gap-1 opacityGrow group">
             <FontAwesomeIcon icon={faCertificate} className="animate-spin text-[#1db954] group-hover:text-white transition-all"/>
-            <span className="text-white cursor-pointer select-none uppercase nohemiExtraBold tracking-tight group-hover:text-[#1db954] transition-all"  onMouseEnter={toggleCursorHover} onMouseLeave={() => {
+            <span className="text-white cursor-pointer select-none uppercase nohemiLight tracking-tight group-hover:text-[#1db954] transition-all"  onMouseEnter={toggleCursorHover} onMouseLeave={() => {
               if(cursor.hover === true){
                 toggleCursorHover();
               }
             }} onClick={() => {
               props.setContact(true);
-            }} onMouseDown={toggleCursorActive} onMouseUp={toggleCursorActive}>contact me</span>
+            }} onMouseDown={toggleCursorActive} onMouseUp={toggleCursorActive}>open to work</span>
           </div>
         </div>
-        <a target="_blank" href="https://github.com/enosintech">
-          <div className="absolute cursor-pointer group w-[80px] sm:w-[100px] lg:w-[300px] h-[40px] sm:h-[60px] sm:bottom-8 bottom-7 right-4 sm:right-14 border-[2.5px] overflow-hidden z-[600] bg-white border-white flex" onMouseEnter={toggleCursorHover} onMouseLeave={() => {
-              if(cursor.hover === true){
-                toggleCursorHover();
-              }
-            }} onMouseDown={toggleCursorActive} onMouseUp={toggleCursorActive}>
-            <div className="lg:w-[18%] w-[50%] h-full bg-black flex items-center justify-center">
-              <FontAwesomeIcon icon={faGithub} color="white" size="xl" className="relative z-[10000]"/>
-            </div>
-            <div className="w-[65%] lg:flex h-full hidden items-center justify-center pl-5 relative z-[10000]">  
-              <span className="text-black lg:opacity-100 opacity-0 nohemiSemiBold uppercase">find me on github</span>
-            </div>
-            <div className="lg:w-[17%] w-[50%] h-full flex items-center justify-center lg:justify-start relative z-[10000]">
-              <img src={arrow} className="size-8 rotate-[-45deg]"/>
-            </div>
-            <div className="absolute w-0 group-hover:lg:w-[82%] group-hover:w-[50%] transition-all duration-300 right-0 h-full bg-[#1db954]"></div>
-          </div>
-        </a>
-        <div className="absolute h-[60px] sm:bottom-6 bottom-5 w-full pointer-events-none justify-center flex items-center gap-2 z-[10000] scrollAppear">
-          <div className="w-[30px] h-full rounded-full border-4 border-white flex items-start justify-center py-1">
-            <div className="w-[15px] h-[15px] rounded-full bg-white flex animate-bouncer"></div>
-          </div>
+        <div className="fixed z-[100] top-5 right-10 w-fit h-fit flex items-center justify-center gap-10">
+          <span className="nohemiRegular text-white">Selected Works</span>  
+          <div className="text-white nohemiRegular p-5 bg-[#1db954] rounded-full w-fit h-fit">Let's Talk.</div>
         </div>
-        <div className="w-full h-full flex flex-col items-center justify-center relative scalePin z-[10]">
-            <div className="w-full h-[70%] relative">
-              <div className="absolute w-full h-full bg-gradient-to-b from-black via-transparent to-black"></div>
-              <div className="absolute w-full h-full bg-gradient-to-r from-black via-transparent to-black"></div>
-              <div className="absolute z-[-1] top-0 left-0 w-full h-full hidden">
-                <video key={enosVideo} autoPlay={true} loop={true} muted={true} playsInline={true} className="w-full h-full object-cover">
-                  <source src={enosVideo} type="video/mp4"/>
-                  Video Format Not Supported
-                </video>
-              </div>
-              <div className="absolute bottom-0 left-20 uppercase nasalization text-white translate-y-28 text-[400px]">
-                <span>e</span>
-                <span>n</span>
-                <span>o</span>
-                <span>s</span>
-              </div> 
+        <div className="rounded-full w-[120px] h-[120px] z-[20000] bg-gray-700 flex items-center justify-center fixed bottom-10 left-28">
+          <img src={arrow} className="invert rotate-[90deg]"/>
+        </div>
+        <div className="absolute w-[350px] flex flex-col h-[120px] top-28 left-0 right-0 mx-auto uppercase nohemiBold z-[13]">
+          <div className="bg-white rounded-full w-fit h-fit p-3 absolute left-0 top-0">
+            front end developer
+          </div>
+          <div className="w-fit h-fit p-3 bg-[#1db954] rounded-full absolute top-0 bottom-0 my-auto -right-1">
+            ux/ui designer
+          </div>
+          <div className="w-fit h-fit p-3 border-white border-2 rounded-full text-white bottom-0 absolute left-12">
+            creative coder
+          </div>
+          <span className="text-white absolute bottom-5 right-20 text-[100px] max-h-[30px]">*</span>
+        </div>
+        <div className="w-full h-[100svh] flex flex-col gap-10 items-center justify-center relative scalePin z-[12]">
+            <div className="absolute z-[10] uppercase text-[400px] left-20 w-fit min-w-fit slussenBlackExp text-white textlefter">enosintech</div>
+            <div className="imageGrow flex items-center justify-center overflow-hidden">
+              <video key={floating} autoPlay={true} loop={true} muted={true} playsInline={true} className="w-full h-full object-cover">
+                <source src={floating} type="video/mp4"/>
+                Video Format Not Supported
+              </video>
             </div>
-            <div className="w-full h-[30%] flex flex-col relative">
-              <div className="w-full h-[40%] bg-[#1db954] flex items-center justify-between px-28 uppercase text-black">
-                <span className="nohemiExtraBold text-[50px]">full stack developer</span>
-                <span className="nohemiLight text-[20px]">contact me</span>
-              </div>
-              <div className="w-fit mt-3 h-[100px] relative text-white flex flex-col justify-between left-28">
-                <span className="text-[12px] nohemiBlack"></span>
-                <span className="uppercase nohemiLight text-[#1db954]">scroll to learn more</span>
-              </div>
-            </div>
+        </div>
+        <div className="w-full h-[100svh] flex flex-col spacer relative makeWideTrigger">
+          
         </div>
       </div>
     </>

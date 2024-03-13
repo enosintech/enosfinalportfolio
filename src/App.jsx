@@ -60,7 +60,7 @@ function App({children}) {
       ScrollTrigger.create({
         trigger: ".scalePin",
         start: "top top",
-        end: "bottom -200%",
+        end: "bottom top",
         pin: true,
       })
 
@@ -137,10 +137,10 @@ function App({children}) {
         }
       })
 
-      gsap.fromTo(".scalePin", {
-        scale: 1,
+      gsap.fromTo(".mover", {
+        x: 80,
       }, {
-        scale: 0,
+        x: -9000,
         scrollTrigger: {
           trigger: ".spacer",
           scrub: true,
@@ -305,6 +305,76 @@ function App({children}) {
         }
       })
 
+      gsap.fromTo(".imageGrow", {
+        width: 400,
+        height: 500,
+        rotate: 8,
+        borderRadius: 12,
+      }, {
+        width: "100%",
+        height: "100%",
+        rotate: 0,
+        borderRadius: 0,
+        scrollTrigger: {
+          trigger: ".makeWideTrigger",
+          scrub: true,
+          end: "top 200px"
+        }
+      })
+
+      gsap.fromTo(".textlefter", {
+        x: 0,
+      }, {
+        x: -2500,
+        scrollTrigger: {
+          trigger: ".spacer",
+          scrub: true,
+        }
+      })
+
+      gsap.to(".whiteText", {
+        color: "white",
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: ".spacer",
+          toggleActions: "play none none reverse",
+          start: "top center",
+        }
+      })
+
+      gsap.to(".whiteBack", {
+        backgroundColor: "white",
+        color: "black",
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: ".spacer",
+          toggleActions: "play none none reverse",
+          start: "top center"
+        }
+      })
+
+      gsap.fromTo(".slideInText", {
+        x: 600,
+      }, {
+        x: 0,
+        duration: 0.3,
+        scrollTrigger: {
+          trigger: ".workTextTrigger",
+          toggleActions: "play none none reverse",
+          start: "top 200px",
+        },
+      })
+
+      gsap.to(".appearText", {
+        opacity: 1,
+        duration: 0.3,
+        scrollTrigger: {
+          trigger: ".workTextTrigger",
+          toggleActions: "play none none reverse",
+          start: "top 200px",
+        }
+      })
+
     }, component)
 
     return (() => {
@@ -315,15 +385,15 @@ function App({children}) {
   return (
     <div ref={component}>
       <CursorContextProvider>
-        <div className="w-[100dvw] h-[60px] z-[10000] fixed top-0 flex items-center justify-between px-5 sm:px-8 md:px-10">
-          <div className="w-fit h-fit">
-            <span className="nohemiBlack uppercase text-[14px] md:text-[16px] lg:text-[18px] text-white opacity-0 transition-all">enosintech</span>
+        <div className="w-[100dvw] h-[60px] z-[10000] fixed top-0 flex items-end justify-between px-5 sm:px-8 md:px-10">
+          <div className="w-fit h-fit contactAppear opacity-0">
+            <span className="slussenBlackExp uppercase text-[14px] md:text-[16px] lg:text-[18px] text-white transition-all">enosintech</span>
           </div>
           <div className="w-fit h-fit flex flex-col md:text-[15px] text-[14px] text-white uppercase nohemiLight">
-            <span>lusaka, zm 9:22 am cat</span>
+           
           </div>
         </div>
-        <div className="w-[15px] h-[85svh] fixed left-2 lg:left-5 z-[10000] top-20 flex flex-col items-center overflow-visible" ref={scrollBarRef}>
+        <div className="w-[15px] h-[85svh] fixed left-2 lg:left-5 z-[10000] top-20 flex contactAppear opacity-0 flex-col items-center overflow-visible" ref={scrollBarRef}>
           <div className="w-fit h-fit overflow-visible absolute top-0 -left-[7px] progress flex flex-col">
               <div class="flameContainer">
                   <div class="flameRed flame"></div>

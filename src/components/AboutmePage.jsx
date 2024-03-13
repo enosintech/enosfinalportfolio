@@ -48,82 +48,8 @@ function AboutmePage() {
 
   return (
     <>
-        <div className="w-full h-[100svh] bg-black relative flex flex-col z-[600]">
-          <div className="w-full h-[200px] absolute top-[-100px] bg-gradient-to-b from-transparent via-50% via-black to-black contactAppearTrigger">
-
-          </div>
-          <div className="w-full h-[50%] flex items-center justify-center">
-            <div className="w-[30%] relative z-[10000] h-[80%] flex flex-col items-center justify-evenly">
-                <div className="w-[70%] h-[70%] flex flex-col">
-                    {tripDetails.map((tripDetail, index) => (
-                        <div key={tripDetail.id} index={index} className={`w-full h-1/5 ${tripDetail.id === tripDetails.length ? "border-none pb-2" : "border-b-4 pb-1"} border-white flex items-end justify-between px-3 text-white`}>
-                            <span className="nohemiRegular text-[13px]">{tripDetail.text1}</span>
-                            <span className="nohemiExtraBold text-[18px]">{tripDetail.text2}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-          </div>
-          <div className="w-full h-[50%] flex px-14">
-            <div className="w-full h-full flex flex-col">
-                <div className="w-full h-[90%] flex items-center justify-evenly">
-                    <div className="xl:w-[15%] lg:w-[20%] w-[25%] h-[50%] md:h-[65%] sm:h-[60%] lg:h-[70%] xl:h-[80%] rounded-xl shadow-md -rotate-[10deg] group relative hover:scale-[1.3] transition-all duration-300 cursor-pointer select-none" onMouseEnter={toggleCursorHover} onMouseLeave={() => {
-                        if(cursor.hover === true){
-                            toggleCursorHover();
-                        }
-                    }} onMouseDown={toggleCursorActive} onMouseUp={() => {
-                        toggleCursorActive();
-                        if(cursor.hover === false){
-                            toggleCursorHover();
-                        }
-                    }}>
-                        <img src={about1} className="w-full h-full rounded-xl object-cover" alt="about Enos"/>
-                        <div className="w-fit h-fit flex flex-col absolute bottom-2 md:bottom-10 right-1 md:right-4 text-[8px] md:text-[11px] text-right">
-                            <span className="text-white nohemiBlack tracking-tight uppercase">learn about</span>
-                            <span className="text-white nohemiBlack tracking-tight uppercase">command pilot</span>
-                            <span className="text-white nohemiSemiBold tracking-tight uppercase text-[6px] md:text-[9px] opacity-0 group-hover:opacity-100 transition-all duration-500">about me</span>
-                        </div>
-                    </div>
-                    <div className="xl:w-[15%] lg:w-[20%] w-[25%] h-[50%] md:h-[65%] sm:h-[60%] lg:h-[70%] xl:h-[80%] rounded-xl shadow-md rotate-[4deg] group relative hover:scale-[1.3] transition-all duration-300 cursor-pointer select-none" onMouseEnter={toggleCursorHover} onMouseLeave={() => {
-                        if(cursor.hover === true){
-                            toggleCursorHover();
-                        }
-                    }} onMouseDown={toggleCursorActive} onMouseUp={() => {
-                        toggleCursorActive();
-                        if(cursor.hover === false){
-                            toggleCursorHover();
-                        }
-                    }}>
-                        <img src={about3} className="w-full h-full rounded-xl object-cover" alt="deep in space"/>
-                        <div className="w-fit h-fit flex flex-col absolute bottom-2 md:bottom-10 right-1 md:right-4 text-[8px] md:text-[11px] text-right">
-                            <span className="text-white nohemiBlack tracking-tight uppercase">deep</span>
-                            <span className="text-white nohemiBlack tracking-tight uppercase">in space</span>
-                            <span className="text-white nohemiSemiBold tracking-tight uppercase text-[6px] md:text-[9px] opacity-0 group-hover:opacity-100 transition-all duration-500">space tour</span>
-                        </div>
-                    </div>
-                    <div className="xl:w-[15%] lg:w-[20%] w-[25%] h-[50%] md:h-[65%] sm:h-[60%] lg:h-[70%] xl:h-[80%] rounded-xl shadow-md -rotate-[7deg] group relative hover:scale-[1.3] transition-all duration-300 cursor-pointer select-none" onMouseEnter={toggleCursorHover} onMouseLeave={() => {
-                        if(cursor.hover === true){
-                            toggleCursorHover();
-                        }
-                    }} onMouseDown={toggleCursorActive} onMouseUp={() => {
-                        toggleCursorActive();
-                        if(cursor.hover === false){
-                            toggleCursorHover();
-                        }
-                    }}>
-                        <img src={about4} className="w-full h-full rounded-xl object-cover" alt="mars"/>
-                        <div className="w-fit h-fit flex flex-col absolute bottom-2 md:bottom-10 right-1 md:right-4 text-[8px] md:text-[11px] text-right">
-                            <span className="text-white nohemiBlack tracking-tight uppercase">gale</span>
-                            <span className="text-white nohemiBlack tracking-tight uppercase">crater</span>
-                            <span className="text-white nohemiSemiBold tracking-tight uppercase text-[6px] md:text-[9px] opacity-0 group-hover:opacity-100 transition-all duration-500">Mars</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div className="w-full h-[500svh] bg-black z-[600] relative overflow-x-hidden yieldTrigger">
-            <div className="w-full h-1/5 aboutPin flex items-center relative">
+        <div className="w-full h-[500svh] z-[600] relative overflow-x-hidden yieldTrigger">
+            <div className="w-full h-1/5 aboutPin contactAppearTrigger flex items-center relative">
                 <div className="w-[150vw] min-w-[150vw] h-[75%] flex yieldLeft relative">
                     <div className="w-[33.33%] min-w-[33.33%] h-full flex items-center justify-end">
                         <div className="w-[55%] h-[93%] rounded-xl relative overflow-hidden">
@@ -146,15 +72,19 @@ function AboutmePage() {
                     </div>
                     <div className="w-[33.33%] min-w-[33.33%] h-full flex items-center justify-center">
                         <div className="w-[75%] h-[93%] flex flex-col">
-                            <div className="w-full h-[50%] flex justify-end">
-                                <p className="w-[80%] h-fit text-[22px] uppercase nohemiSemiBold text-white righttoleft">
-                               hi there, i am <span className="text-[#1db954]">enos nsamba,</span> a software developer and lifelong learner from zambia, currently in lusaka. I have an orientation for detail and symmetrical design. I love when things fit and I have an eye for when they don't</p>
+                            <div className="w-full h-[95%] flex justify-start">
+                                <p className="w-full h-fit text-[30px] px-5 nohemiRegular text-white text-justify">
+                               Hi there, I am <span className="text-[#1db954]">Enos Nsamba,</span> a software developer and lifelong learner from Zambia, currently in Lusaka. I have an orientation for detail and symmetrical design. I love when things fit and I have an eye for when they don't. When I am not coding, I love to write and ponder on things.</p>
                             </div>
-                            <div className="w-full h-[50%] flex items-center pl-5">
-                                <div className="rounded-full w-[220px] h-[220px] overflow-hidden">
-                                    <img className="w-full h-full object-contain" src={moon} alt="moon image"/>
-                                </div>
-                            </div>        
+                            <div className="w-full h-[5%] border-y-2 border-white text-white uppercase nohemiBold flex items-center justify-center gap-2">
+                                <span>lusaka, zm</span>
+                                <span>·</span>
+                                <span>21° C</span>
+                                <span>·</span>
+                                <span>15.4155° S, 28.2773° E</span>
+                                <span>·</span>  
+                                <span>12 : 56 : 33 PM CAT</span>
+                            </div>       
                         </div>
                     </div>
                     <div className="w-[33.33%]  min-w-[33.33%] h-full flex items-center justify-start">
@@ -163,7 +93,7 @@ function AboutmePage() {
                                 <span className="w-full h-[20%] flex items-center uppercase nohemiLight border-b-2 border-white">summary</span>
                                 <div className="w-full h-[80%] flex">
                                     <div className="w-1/2 h-full flex flex-col items-center justify-center uppercase">
-                                        <span className="nohemiBlack text-[60px] text-[#1bd954]">3</span>
+                                        <span className="nohemiBlack text-[60px] text-[#1bd954]">4</span>
                                         <span className="nohemiSemiBold">professional projects</span>
                                     </div>
                                     <div className="w-1/2 h-full flex flex-col items-center justify-center uppercase">
@@ -201,40 +131,6 @@ function AboutmePage() {
                     </div>
                 </div>
             </div>
-        </div>
-        <div className="w-full h-[100svh] bg-black relative flex items-center justify-center overflow-y-visible">
-          <div className="w-full h-[300svh] absolute z-[-1] top-0 shipTrigger"></div>
-          <div className="w-full h-full top-0 absolute modelPin overflow-y-visible z-[500] pointer-events-none">
-            <Canvas>
-                <ambientLight intensity={1.25}/>
-                    <Suspense fallback={null}>
-                        <Model />
-                    </Suspense>
-                <OrbitControls enableZoom={false} enableRotate={false}/>
-            </Canvas>       
-          </div>          
-          <div className="h-full w-[25%] flex flex-col items-center justify-between pt-20 pb-5">
-            <div className="w-fit h-fit uppercase flex flex-col">
-                <span className="beckanr text-[55px] text-[#1db954]">key tools</span>
-                <span className="text-[50px] -translate-y-6 nohemiSemiBold text-white">& services</span>
-            </div>        
-          </div>
-          <div className="h-full w-[75%] relative">
-            <div className="w-full h-[80%] absolute bottom-0 flex flex-col items-center z-[600]">
-                {abilities.map((ability, index) => (
-                    <div key={ability.id} index={index} className={`w-[95%] group px-2 relative transition-all hover:text-black text-white text-[30px] h-1/6 border-b border-gray-400 flex items-center justify-between`}>
-                        <div className="w-0 group-hover:w-full h-full bg-white absolute left-0 z-[0] transition-all"></div>
-                        <span className="nohemiLight relative z-[1]">{ability.text1}</span>
-                        <div className="flex items-center relative z-[1] gap-2">
-                            <span className="nohemiBold">{ability.text2}</span>
-                            <div className="w-[35px] h-[35px]">
-                                <img className="w-full h-full object-contain" alt="tool icon" src={ability.image2}/>
-                            </div>
-                        </div>
-                    </div>
-                ))}            
-            </div>       
-          </div>
         </div>
     </>
   )
