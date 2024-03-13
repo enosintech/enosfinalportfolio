@@ -412,6 +412,23 @@ body {
     animation: purpleFloat 5s alternate infinite;
 }
 
+.pers650 {
+    perspective: 650px;
+}
+
+.persCube {
+    transform-style: preserve-3d;
+    perspective-origin: center;
+}
+
+.persMove {
+    transform: translateZ(-50px) rotateY(-10deg);
+}
+
+.persMoveLeft {
+    transform: translateZ(-50px) rotateY(10deg);
+}
+
 .pin-spacer {
     pointer-events: none;
 }

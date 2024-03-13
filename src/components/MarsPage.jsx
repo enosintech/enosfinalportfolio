@@ -91,15 +91,6 @@ function MarsPage() {
       </div>
       <div className="w-full h-[100svh] flex-col flex justify-between relative overflow-x-hidden">
             <div className="w-full h-[200svh] absolute z-[-1] top-0 shipTrigger2"></div>    
-            <div className="w-full h-full top-0 absolute modelPin2 overflow-y-visible z-[500] pointer-events-none">
-                <Canvas>
-                    <ambientLight intensity={1.25}/>
-                        <Suspense fallback={null}>
-                            <Model2 />
-                        </Suspense>
-                    <OrbitControls enableZoom={false} enableRotate={false}/>
-                </Canvas>       
-            </div> 
             <div className="w-full h-[55%] px-20 relative">
                 <span className="text-[400px] uppercase nohemiBlack text-[#1db954]">mars</span>
                 <span className="absolute bottom-20 right-60 rotate-[-15deg] font-ds text-[50px] text-white">the red planet</span>

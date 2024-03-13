@@ -74,7 +74,7 @@ function App({children}) {
       ScrollTrigger.create({
         trigger: ".modelPin",
         start: "top top",
-        end: "bottom -100%",
+        end: "bottom bottom",
         pin: true,
       })
 
@@ -375,6 +375,149 @@ function App({children}) {
         }
       })
 
+      gsap.fromTo(".parallax", {
+        y: 1000,
+      }, {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".parallaxTrigger",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom",
+        }
+      })
+
+      gsap.fromTo(".parallax2", {
+        y: 1000,
+      }, {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".parallaxTrigger2",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom",
+        }
+      })
+
+      gsap.fromTo(".parallax3", {
+        y: 1000,
+      }, {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".parallaxTrigger3",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom",
+        }
+      })
+
+      gsap.fromTo(".parallax4", {
+        y: 1000,
+      }, {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".parallaxTrigger4",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom",
+        }
+      })
+
+      gsap.fromTo(".parallax5", {
+        y: 1000,
+      }, {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".parallaxTrigger5",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom",
+        }
+      })
+
+      gsap.fromTo(".parallax6", {
+        y: 1000,
+      }, {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".parallaxTrigger6",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom",
+        }
+      })
+
+      gsap.fromTo(".ballParallax", {
+        y: -200,
+      }, {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".parallaxTrigger",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom",
+        }
+      })
+
+      gsap.fromTo(".ballParallax2", {
+        y: -200,
+      }, {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".parallaxTrigger2",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom",
+        }
+      })
+
+      gsap.fromTo(".ballParallax3", {
+        y: -200,
+      }, {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".parallaxTrigger3",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom",
+        }
+      })
+
+      gsap.fromTo(".ballParallax4", {
+        y: -200,
+      }, {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".parallaxTrigger4",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom",
+        }
+      })
+
+      gsap.fromTo(".ballParallax5", {
+        y: -200,
+      }, {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".parallaxTrigger5",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom",
+        }
+      })
+
+      gsap.fromTo(".ballParallax6", {
+        y: -200,
+      }, {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".parallaxTrigger6",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom bottom",
+        }
+      })
     }, component)
 
     return (() => {

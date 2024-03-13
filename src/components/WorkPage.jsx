@@ -8,6 +8,8 @@ import SpaceDust from "./SpaceDust";
 
 import MobileWorkComponent from "./MobileWorkComponent";
 import WebsiteWorkComponent from "./WebsiteWorkComponent";
+import RightWorkComponent from "./RightWorkComponent";
+import LeftWorkComponent from "./LeftWorkComponent";
 
 import about3 from "../assets/images/about3.webp";
 import spaceImage1 from "../assets/images/spaceImage1.webp";
@@ -30,7 +32,7 @@ function WorkPage() {
               <Canvas>
                   <ambientLight intensity={4}/>
                       <Suspense fallback={null}>
-                          <Model />
+                          
                       </Suspense>
                   <OrbitControls enableZoom={false} enableRotate={false}/>
               </Canvas>       
@@ -49,36 +51,49 @@ function WorkPage() {
             </div>          
           </div>
           <div className="relative">
-            <div className="w-full h-full bg-green-500 absolute top-0 left-0 z-[-1]">
+            <div className="w-full h-full absolute top-0 left-0 z-[-1]">
               <Canvas
                 pixelRatio={window.devicePixelRatio}
-                camera={{ fov: 100, position: [0, 0, 30] }}
+                camera={{ fov: 100, position: [0, 0, 95] }}
                 onCreated={({ gl, size, camera }) => {
                   if (size.width < 600) {
-                    camera.position.z = 45;
+                    camera.position.z = 110;
                   }
-                  gl.setClearColor(new THREE.Color('#020207'));
+                  gl.setClearColor(new THREE.Color('#000000'));
                 }}>
-                <SpaceDust count={10000}/>
+                <directionalLight position={[0, 5, 0]} intensity={2}/>
+                <SpaceDust count={1000}/>
               </Canvas>
             </div>
-            <div className="w-full h-[100svh] flex justify-end">
-              <div className="w-1/2 h-full bg-red-500"></div>
+            <div className="w-full h-[100svh] flex justify-end">  
+              <div className="w-1/2 h-full flex items-start justify-center parallaxTrigger">
+                <RightWorkComponent animationClass={"parallax"} ballAnimationClass={"ballParallax"}/>
+              </div>
             </div>
             <div className="w-full h-[100svh] flex justify-start">
-              <div className="w-1/2 h-full bg-blue-500"></div>
+              <div className="w-1/2 h-full flex items-start justify-center parallaxTrigger4">
+                <LeftWorkComponent animationClass={"parallax4"} ballAnimationClass={"ballParallax4"}/>
+              </div>
             </div>
             <div className="w-full h-[100svh] flex justify-end">
-              <div className="w-1/2 h-full bg-yellow-500"></div>
+              <div className="w-1/2 h-full flex items-start justify-center parallaxTrigger2">
+                <RightWorkComponent animationClass={"parallax2"} ballAnimationClass={"ballParallax2"}/>
+              </div>
             </div>
             <div className="w-full h-[100svh] flex justify-start">
-              <div className="w-1/2 h-full bg-purple-500"></div>
+              <div className="w-1/2 h-full flex items-start justify-center parallaxTrigger5">
+                <LeftWorkComponent animationClass={"parallax5"} ballAnimationClass={"ballParallax5"}/>
+              </div>
             </div>
             <div className="w-full h-[100svh] flex justify-end">
-              <div className="w-1/2 h-full bg-pink-500"></div>
+              <div className="w-1/2 h-full flex items-start justify-center parallaxTrigger3">
+                <RightWorkComponent animationClass={"parallax3"} ballAnimationClass={"ballParallax3"}/>
+              </div>
             </div>
             <div className="w-full h-[100svh] flex justify-start">
-              <div className="w-1/2 h-full bg-orange-500"></div>
+              <div className="w-1/2 h-full flex items-start justify-center parallaxTrigger6">
+                <LeftWorkComponent animationClass={"parallax6"} ballAnimationClass={"ballParallax6"}/>
+              </div>
             </div>
           </div>
         </div>

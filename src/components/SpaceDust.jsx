@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react'
+import { useRef, useMemo, useEffect } from 'react'
 import * as THREE from "three";
 import { useFrame } from '@react-three/fiber';
 import random from 'canvas-sketch-util/random';
@@ -13,7 +13,7 @@ function SpaceDust({ count }) {
         for(let i = 0; i < count; i++){
             const time = random.range(0, 100);
             const factor = random.range(20, 120);
-            const speed = random.range(0.01 , 0.015 / 2);
+            const speed = random.range(0.001 , 0.005 / 2);
             const x = random.range(-50, 50);
             const y = random.range(-50, 50);
             const z = random.range(-50, 50);
@@ -57,10 +57,10 @@ function SpaceDust({ count }) {
 
   return (
     <>
-      <pointLight ref={light} distance={40} intensity={8} color="lightblue" />
+      {/*<pointLight ref={light} distance={10000} intensity={1000} />*/}
       <instancedMesh ref={mesh} args={[null, null, count]}>
         <dodecahedronGeometry args={[0.2, 0]} />
-        <meshPhongMaterial color="#050505" />
+        <meshPhongMaterial color="#ffffff" />
       </instancedMesh>
     </>
 
