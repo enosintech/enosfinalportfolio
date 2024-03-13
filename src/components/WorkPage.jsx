@@ -3,7 +3,7 @@ import { Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from 'three';
 
-import { Model } from "../assets/3d-models/ship/Scene";
+import { Model } from "../assets/3d-models/space_shuttle/Scene";
 import SpaceDust from "./SpaceDust";
 
 import MobileWorkComponent from "./MobileWorkComponent";
@@ -32,9 +32,9 @@ function WorkPage() {
               <Canvas>
                   <ambientLight intensity={4}/>
                       <Suspense fallback={null}>
-                          
+                          <Model />
                       </Suspense>
-                  <OrbitControls enableZoom={false} enableRotate={false}/>
+                  <OrbitControls enableZoom={false} enableRotate={true}/>
               </Canvas>       
             </div>
             <div className="w-[85%] h-full flex flex-col workTextTrigger">
