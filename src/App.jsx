@@ -74,15 +74,8 @@ function App({children}) {
       ScrollTrigger.create({
         trigger: ".modelPin",
         start: "top top",
-        end: "bottom bottom",
+        end: "bottom -500%",
         pin: true,
-      })
-
-      ScrollTrigger.create({
-        trigger: ".modelPin2",
-        start: "top top",
-        end: "bottom -100%",
-        pin: true
       })
 
       ScrollTrigger.create({
@@ -516,6 +509,29 @@ function App({children}) {
           scrub: true,
           start: "top bottom",
           end: "bottom bottom",
+        }
+      })
+
+      gsap.to(".modelPin", {
+        opacity: 0,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: ".parallaxTrigger6",
+          toggleActions: "play none none reverse",
+          start: "top center"
+        }
+      })
+
+      gsap.fromTo(".scaleAppear", {
+        scale: 0.
+      }, {
+        scale: 1,
+        duration: 0.5,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".scaleAppearTrigger",
+          toggleActions: "play none none reverse",
+          start: "top 70%",
         }
       })
     }, component)

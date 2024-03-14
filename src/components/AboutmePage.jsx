@@ -74,7 +74,7 @@ function AboutmePage() {
                         <div className="w-[75%] h-[93%] flex flex-col">
                             <div className="w-full h-[95%] flex justify-start">
                                 <p className="w-full h-fit text-[30px] px-5 nohemiRegular text-white text-justify">
-                               Hi there, I am <span className="text-[#1db954]">Enos Nsamba,</span> a software developer and lifelong learner from Zambia, currently in Lusaka. I have an orientation for detail and symmetrical design. I love when things fit and I have an eye for when they don't. When I am not coding, I love to write and ponder on things.</p>
+                               Hi there, I am <span className="text-[#1db954]">Enos Nsamba,</span> a software developer, lifelong learner and an absolute tinkerer from Zambia, currently in Lusaka. I have an orientation for detail and symmetrical design. I love when things fit and I have an eye for when they don't. When I am not coding, I love to write and ponder on things.</p>
                             </div>
                             <div className="w-full h-[5%] border-y-2 border-white text-white uppercase nohemiBold flex items-center justify-center gap-2">
                                 <span>lusaka, zm</span>
@@ -163,50 +163,5 @@ const tripDetails = [
         id: 5,
         text1: "CURRENT SPEED",
         text2: "Escape Velocity",
-    },
-]
-
-const abilities = [
-    {
-        id:1,
-        image1: frontend,
-        text1: "Frontend Design",
-        image2: tailwind,
-        text2: "Tailwind CSS",
-    },
-    {
-        id:2,
-        image1: backend,
-        text1: "Backend Design",
-        image2: node,
-        text2: "Node JS",
-    },
-    {
-        id:3,
-        image1: uxui,
-        text1: "UX/UI Design",
-        image2: figma,
-        text2: "Figma",
-    },
-    {
-        id:4,
-        image1: webmobile,
-        text1: "Web & Mobile",
-        image2: react,
-        text2: "React/ Native",
-    },
-    {
-        id:5,
-        image1: quality,
-        text1: "Quality Assurance",
-        image2: javascript,
-        text2: "Javascript",
-    },
-    {
-        id: 6,
-        image1: documentation,
-        text1: "Automation",
-        image2: python,
-        text2: "Python",
     },
 ]

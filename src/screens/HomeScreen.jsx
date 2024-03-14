@@ -9,7 +9,6 @@ function HomeScreen(props) {
   return (
     <>
       <LandingPage setContact={props.setContact}/>
-      <SpacerPage />
       <AboutmePage />
       <WorkPage />
       <MarsPage />

@@ -3,6 +3,8 @@ import * as THREE from "three";
 import { useFrame } from '@react-three/fiber';
 import random from 'canvas-sketch-util/random';
 
+import useMousePosition from '../hooks/useMousePosition';
+
 function SpaceDust({ count }) {
     const mesh = useRef(null);
     const light = useRef(null);
@@ -13,7 +15,7 @@ function SpaceDust({ count }) {
         for(let i = 0; i < count; i++){
             const time = random.range(0, 100);
             const factor = random.range(20, 120);
-            const speed = random.range(0.001 , 0.005 / 2);
+            const speed = random.range(0.001 , 0.02 / 2);
             const x = random.range(-50, 50);
             const y = random.range(-50, 50);
             const z = random.range(-50, 50);

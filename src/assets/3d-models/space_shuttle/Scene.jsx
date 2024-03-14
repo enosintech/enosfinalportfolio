@@ -7,13 +7,136 @@ Source: https://sketchfab.com/3d-models/space-shuttle-ff4b00b7ebb24fdd98fb96b08f
 Title: Space Shuttle
 */
 
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import React, { useEffect, useRef, useState } from 'react';
+import { useGLTF } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
 export function Model(props) {
   const { nodes, materials } = useGLTF('/space_shuttle/scene.gltf')
+  
+  const tl = useRef(null);
+  const model = useRef(null);
+  const [ scrollOffset, setScrollOffset ] = useState();
+
+  useFrame(() => {
+    tl.current.seek((scrollOffset) * tl.current.duration());
+  })
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      
+      tl.current = gsap.timeline();
+
+      ScrollTrigger.create({
+        trigger: ".shipTrigger",
+        start: "top bottom",
+        end: "bottom bottom",
+        onUpdate: (self) => {
+          setScrollOffset(self.progress)
+        }
+      })
+
+      tl.current.to(
+        model.current.rotation, {
+          x: 1.5,
+          z: -7
+        }
+      )
+
+      tl.current.to(
+        model.current.position, {
+          x: -4,
+          y: -0.2,
+          z: 0.2,
+        }
+      )
+
+      tl.current.to(
+        model.current.rotation, {
+          x: 1.5,
+          z: 7
+        }
+      )
+
+      tl.current.to(
+        model.current.position, {
+          x: 4,
+          y: 0.2,
+          z: -0.2,
+        }
+      )
+
+      tl.current.to(
+        model.current.rotation, {
+          x: 1.5,
+          z: -0.5
+        }
+      )
+
+      tl.current.to(
+        model.current.position, {
+          x: -4,
+          y: -0.2,
+          z: 0.2,
+        }
+      )
+
+      tl.current.to(
+        model.current.scale, {
+          x: 0.9,
+          y: 0.9,
+          z: 0.9,
+        }
+      )
+
+      tl.current.to(
+        model.current.position, {
+          x: 4,
+          y: 0.2,
+          z: -0.2,
+        }
+      )
+
+      tl.current.to(
+        model.current.rotation, {
+          x: 1.5,
+          z: 0.5
+        }
+      )
+
+      tl.current.to(
+        model.current.position, {
+          x: -4,
+          y: -0.2,
+          z: 0.2,
+        }
+      )
+
+      tl.current.to(
+        model.current.rotation, {
+          x: 1.5,
+          z: 5.5
+        }
+      )
+
+    
+      tl.current.to(
+        model.current.position, {
+          x: 4,
+          y: 0.2,
+          z: -0.2,
+        }
+      )
+
+    }, )
+
+    return () => ctx.revert();
+  }, [])
+
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} ref={model}>
       <mesh geometry={nodes.Object_2.geometry} material={materials.Material__197} rotation={[-Math.PI / 2, 0, 0]} scale={0.088} />
     </group>
   )
