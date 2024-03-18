@@ -1,15 +1,14 @@
 import { Suspense } from "react";
-import { Canvas, extend } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from 'three';
 
-import { Model } from "../assets/3d-models/space_shuttle/Scene";
 import SpaceDust from "./SpaceDust";
-
-import MobileWorkComponent from "./MobileWorkComponent";
-import WebsiteWorkComponent from "./WebsiteWorkComponent";
+import ReviewsComponent from "./ReviewsComponent";
 import RightWorkComponent from "./RightWorkComponent";
 import LeftWorkComponent from "./LeftWorkComponent";
+
+import { Model } from "../assets/3d-models/space_shuttle/Scene";
 
 import about1 from "../assets/images/about1.webp";
 import reactjs from "../assets/images/reactjs.webp";
@@ -17,16 +16,8 @@ import javascript from "../assets/images/javascript.webp";
 import tailwind from "../assets/images/tailwind.webp";
 import node from "../assets/images/node.webp";
 import python from "../assets/images/python.webp";
-import figma from "../assets/images/figma.webp";
-import spaceImage1 from "../assets/images/spaceImage1.webp";
+import mongo from "../assets/images/mongodb.png";
 import arrow from "../assets/icons/arrow.png";
-import workPic from "../assets/images/workPic.webp";
-import workPrompt from '../assets/images/workPrompt.webp';
-import workBackground from "../assets/images/workBackground.webp";
-
-import astronautInSpace from "../assets/videos/astronautinspace.mp4";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 function WorkPage() {
 
@@ -103,10 +94,9 @@ function WorkPage() {
                 <LeftWorkComponent animationClass={"parallax6"} ballAnimationClass={"ballParallax6"}/>
               </div>
               <div className="w-1/2 h-full flex flex-col items-center justify-center gap-2">
-                <FontAwesomeIcon icon={faGithub} size="7x" color="white" />
-                <div className="flex items-center gap-2 text-white">
-                  <span className="uppercase nohemiBlack">view more work on github</span>
-                  <img src={arrow} className="invert size-10 -rotate-45"/>
+                <div className="flex items-center gap-2 text-[#1db954]">
+                  <span className="uppercase nohemiBlack text-[20px]">view more work on github</span>
+                  <img src={arrow} className="invert size-14 -rotate-45"/>
                 </div>
               </div>
             </div>
@@ -135,7 +125,7 @@ function WorkPage() {
             </div>        
           </div>
           <div className="w-[70%] h-full flex items-center justify-center scaleAppearTrigger">
-            <div className="h-[85%] w-[70%] flex flex-col">
+            <div className="h-[85%] w-[70%] flex flex-col-reverse">
               <span className="w-full h-[10%] flex items-center justify-center nohemiLight opacity-70 text-white">Bento Box size is relative to my proficiency</span>
               <div className="w-full h-[90%] flex">
                 <div className="w-1/3 h-full flex flex-col">
@@ -169,8 +159,8 @@ function WorkPage() {
                 <div className="w-1/3 h-full flex flex-col">
                   <div className="w-full h-1/2 flex items-end justify-start pb-1">
                     <div className="w-[50%] h-[45%] rounded-[20px] border-white border-2 relative group hover:bg-white transition-all duration-150 scaleAppear">
-                      <img className="object-contain w-[40px] h-[40px] absolute top-3 left-2" alt="React Icon" src={figma}/>
-                      <span className="text-[16px] nohemiRegular absolute text-white bottom-2 left-4 group-hover:text-black transition-all duration-150">Figma</span> 
+                      <img className="object-contain w-[40px] h-[40px] absolute top-3 left-2" alt="React Icon" src={mongo}/>
+                      <span className="text-[16px] nohemiRegular absolute text-white bottom-2 left-4 group-hover:text-black transition-all duration-150">Mongo DB</span> 
                     </div>
                   </div>
                   <div className="w-full h-1/2 flex items-start justify-start pt-1">
@@ -197,9 +187,15 @@ function WorkPage() {
             <div className="w-1/2 h-full flex items-center justify-center relative">
               <span className="uppercase slussenBlackExp text-[#1db954] absolute -left-20 text-[30px] -rotate-90">testimonials</span>
               <div className="w-[50%] h-[60%] relative">
-                <div className="absolute w-full h-full bg-green-500 rounded-xl -top-[10%] -left-[10%] stagger"></div>
-                <div className="absolute top-0 w-full h-full bg-yellow-500 rounded-xl stagger"></div>
-                <div className="absolute w-full h-full bg-purple-500 rounded-xl top-[10%] left-[10%] stagger"></div>
+                <div className="absolute w-full h-full bg-gray-700 shadow-md border border-gray-600 rounded-xl -top-[10%] -left-[10%] stagger flex items-center justify-center">
+                  <ReviewsComponent review={reviews[0]}/>
+                </div>
+                <div className="absolute top-0 w-full h-full bg-gray-700 shadow-md border border-gray-600 rounded-xl stagger flex items-center justify-center">
+                  <ReviewsComponent review={reviews[1]}/>
+                </div>
+                <div className="absolute w-full h-full bg-gray-700 shadow-md border border-gray-600 rounded-xl top-[10%] left-[10%] stagger flex items-center justify-center">
+                  <ReviewsComponent review={reviews[1]}/>
+                </div>
               </div>
             </div>
           </div>
@@ -241,3 +237,20 @@ const services = [
       text1: "Automation",
   },
 ]
+
+const reviews = [
+  {
+    testimonial: "Overall, Enos has done great work and has really impressed me with his ability to complete tasks under minimum supervision. He is definitely someone who can work from home and with an English-speaking employer. My only suggestion for him is to try and gain more work experience so that he can expand his skillsets more.",
+    name: "Haris Nabil",
+    designation: "HR Manager",
+    company: "Fresh Futures Australia",
+    date: "July, 2022"
+  },
+  {
+    testimonial: "Overall, Enos has done great work and has really impressed me with his ability to complete tasks under minimum supervision. He is definitely someone who can work from home and with an English-speaking employer. My only suggestion for him is to try and gain more work experience so that he can expand his skillsets more.",
+    name: "Shikayuni Chilukutu",
+    designation: "HR Manager",
+    company: "Fresh Futures Australia",
+    date: "December, 2023"
+  },
+];

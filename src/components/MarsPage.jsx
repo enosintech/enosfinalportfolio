@@ -1,43 +1,33 @@
 import { useEffect, useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-
-import { Model, Model2 } from "../assets/3d-models/ship/Scene";
 
 import nasa from "../assets/images/nasa.webp";
-import arrow from "../assets/icons/arrow.png";
-import about4 from "../assets/images/about4.webp";
-import mars from "../assets/videos/mars.mp4";
-import distancemars from "../assets/images/distancemars.webp";
-import galecrater from "../assets/images/galecrater.webp";
-import marsBackground from "../assets/images/marsbackground.webp";
 
-import astronaut from "../assets/videos/astronaut.mp4";
+const Sphere = () => {
+    return (
+        <>
+            <pointLight intensity={10000} position={[0, 100, 30]} color={0xffffff}/>
+            <mesh position={[0, 3, 0]}>
+                <sphereGeometry args={[8, 64, 64]} />
+                <meshStandardMaterial color={"#ad6242"} roughness={0.4} />
+            </mesh>
+        </>
+    );
+};
 
 function MarsPage() {
-
+    
     const baseApodUrl = 'https://api.nasa.gov/planetary/apod?api_key=';
-    const basePhotoUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key='
     const apiKey = 'SgxX6ChTJseeCpJdu8Wvr8orsddu2wFbhxIxYXFm';
 
     const [ nasaApodData, setNasaApodData ] = useState({});
-    const [ marsPhotoData, setMarsPhotoData] = useState();
 
     useEffect(() => {
         fetch(baseApodUrl + apiKey)
         .then(response => response.json())
         .then (json => {
             setNasaApodData(json)
-        })
-    }, [])
-
-    useEffect(() => {
-        fetch(basePhotoUrl + apiKey)
-        .then(response => response.json())
-        .then(json => {
-            setMarsPhotoData(json.latest_photos)
         })
     }, [])
 
@@ -89,64 +79,82 @@ function MarsPage() {
             </div> 
          </div>
       </div>
-      <div className="w-full h-[100svh] flex-col flex justify-between relative overflow-x-hidden">
-            <div className="w-full h-[200svh] absolute z-[-1] top-0 shipTrigger2"></div>    
-            <div className="w-full h-[55%] px-20 relative">
-                <span className="text-[400px] uppercase nohemiBlack text-[#1db954]">mars</span>
-                <span className="absolute bottom-20 right-60 rotate-[-15deg] font-ds text-[50px] text-white">the red planet</span>
-            </div>
-            <div className="w-full h-[30%] flex items-center justify-end gap-10 px-20 relative">
-                <div className="w-[13%] h-[75%] rounded-xl overflow-hidden">
-                    <img className="w-full h-full object-cover" alt="gale crater" src={galecrater}/>
-                </div>
-                <div className="w-[13%] h-[75%] rounded-xl overflow-hidden">
-                    <video key={astronaut} className="w-full h-full object-cover" controls={false} autoPlay={true} loop={true} muted={true} playsInline={true} >
-                        <source key={astronaut} src={astronaut} type="video/mp4"/>
-                        Video Format Not Supported
-                    </video>
-                </div>
-                <div className="w-[13%] h-[75%] rounded-xl overflow-hidden">
-                    <img className="w-full h-full object-cover" alt="distance to mars" src={about4}/>
-                </div>
-            </div>
+      <div className="w-full h-[100svh] flex-col flex items-center justify-center relative overflow-y-visible overflow-x-hidden">
+        <h1 className="text-white nohemiBlack text-[450px] translate-y-32">MARS</h1>
+        <div className="w-full h-[200px] flex items-center justify-center gap-5">
+            <div className="w-[150px] h-[150px] rounded-[16px] bg-white"></div>
+            <div className="w-[150px] h-[150px] rounded-[16px] bg-white"></div>
+            <div className="w-[150px] h-[150px] rounded-[16px] bg-white"></div>
+        </div>
+        <div className="w-full h-full absolute top-0 left-0">
+            <Canvas
+                camera={{position: [0, 0, 20]}}
+            >   
+                <Suspense fallback={null}>
+                    <Sphere />
+                </Suspense>
+                <OrbitControls enableZoom={false} enablePan={false} autoRotate={true} autoRotateSpeed={3}/>
+            </Canvas>
+        </div>          
       </div>
-      <div className="w-full h-[100svh] relative pt-[60px] px-20 flex flex-col overflow-x-hidden opacityTrigger">
-        <div className="w-full h-fit flex items-center justify-between text-white uppercase">
-            <span className="nohemiExtraBold text-[50px]">sadly, <span className="text-[#1db954]">life on mars</span> is only just a song.</span>
-            <div className="flex items-center gap-2">
-                <span className="nohemiRegular hover:text-[#1db954] transition-all duration-300 relative z-[500]">go back home</span>
-                <img src={arrow} className="size-8 invert rotate-[-45deg]"/>
+      <div className="w-full h-[100svh] relative pt-[60px] px-20 flex items-center justify-center overflow-x-hidden opacityTrigger">
+        <div className="w-[93%] h-[92%] flex">
+            <div className="w-1/2 h-full flex flex-col">
+                <h1 className="font-black text-white text-[40px] text-justify">Sadly, <span className="text-[#1db954]">Life on Mars</span> is only just a song. But while you're here, let's bring your idea to life!</h1>
+                <h2 className="agRegular text-white text-[30px] mt-5">I am currently open to <span className="text-[#1db954]">Full time</span> and <span className="text-[#1db954]">Freelance</span> roles</h2>
+                <div className="flex-1 items-center">
+                    <div className="w-[95%] h-[90%] rounded-[20px] px-5">
+                        <form className="w-full h-full flex flex-col justify-evenly items-center relative">
+                            <div className="w-full h-[20%] flex justify-center gap-5 ">
+                                <input type="text" placeholder="Your Name" className="bg-black px-2 agRegular text-white text-[20px] outline-none w-1/2 border-b-2 border-[#1db954]"/>
+                                <input type="email" placeholder="Your Email" className="bg-black px-2 agRegular text-white text-[20px] outline-none w-1/2 border-b-2 border-[#1db954]"/>
+                            </div>
+                            <textarea placeholder="Your Message" className="w-full h-[55%] border-b-2 py-1 px-2 border-[#1db954] bg-black outline-none resize-none text-white text-[20px] agRegular">
+
+                            </textarea>
+                            <div className="w-full flex justify-end">
+                                <input type="submit" className=" w-[200px] p-4 h-fit rounded-full bg-[#1db954] text-white agBlack" value="Send Message"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div className="w-1/2 h-full flex flex-col px-5 py-5 items-center">
+                <div className="w-[90%] flex justify-end px-1">
+                    <span className="text-white uppercase agBlack">futher enquiries or collaboration</span>
+                </div>
+                <div className="w-[90%] h-[30%] rounded-[16px] border-white border-2 flex items-center justify-center">
+                    <a className="text-[40px] nohemiLight text-white">enos.nsambaj@gmail.com</a>
+                </div>
+                <div className="w-[90%] h-[40%] flex flex-col gap-1 p-3 items-end uppercase text-white text-[20px]">
+                    <span className="agBlack">socials</span>
+                    <span className="agRegular"><a>github</a></span>
+                    <span className="agRegular"><a>linkedin</a></span>
+                    <span className="agRegular"><a>medium</a></span>
+                    <span className="agRegular"><a>twitter</a></span>
+                    <span className="agRegular"><a>instagram</a></span>
+                </div>
+                <div className="w-[90%] h-[20%] flex flex-col items-end uppercase text-white text-[20px]">
+                    <span className="agBlack">local time</span>
+                    <span className="agRegular">2 : 28 : 36 PM GMT +2</span>
+                </div>
             </div>
         </div>
-        <div className="">
-            <span className="text-white uppercase text-[50px] nohemiExtraBold">but while you're here,</span>
-        </div>
-        <div className="w-fit h-[350px] -translate-y-[6%] -translate-x-2 relative z-[500] flex items-center pt-20">
-            <span className="uppercase text-white text-[400px] nohemiBlack transition-all duration-300">hmu</span>
-            <span className="absolute bottom-60 -right-28 rotate-[-15deg] font-ds text-[50px] text-[#1db954] transition-all duration-300">hit me up</span>
-        </div>
-        <div className="w-fit h-fit text-[30px] text-white nohemiRegular">
-            <span>I am open to <span className="text-[#1db954]">Full Time</span> and <span className="text-[#1db954]">Freelance</span> roles.</span>
-        </div>
-        <a target="_blank" href="https://github.com/enosintech">
-            <div className="absolute cursor-pointer group w-[80px] sm:w-[100px] lg:w-[300px] h-[40px] sm:h-[60px] sm:bottom-24 bottom-7 left-10 sm:left-20 border-[2.5px] overflow-hidden z-[600] bg-white border-white flex">
-              <div className="lg:w-[18%] w-[50%] h-full bg-black flex items-center justify-center">
-                <FontAwesomeIcon icon={faGithub} color="white" size="xl" className="relative z-[10000]"/>
-              </div>
-              <div className="w-[65%] lg:flex h-full hidden items-center justify-center pl-5 relative z-[10000]">  
-                <span className="text-black lg:opacity-100 opacity-0 nohemiSemiBold uppercase">connect on github</span>
-              </div>
-              <div className="lg:w-[17%] w-[50%] h-full flex items-center justify-center lg:justify-start relative z-[10000]">
-                <img src={arrow} className="size-8 rotate-[-45deg]"/>
-              </div>
-              <div className="absolute w-0 group-hover:lg:w-[82%] group-hover:w-[50%] transition-all duration-300 right-0 h-full bg-[#1db954]"></div>
+      </div>
+      <div className="w-full h-[40svh] rotateTrigger flex justify-end">
+        <div className="h-full w-[40%] flex flex-col justify-between py-5 px-48">
+            <div className="flex flex-col items-end text-white uppercase text-[20px]">
+                <span className="agBlack">navigation</span>
+                <span className="agRegular">Home</span>
+                <span className="agRegular">About</span>
+                <span className="agRegular">Work</span>
+                <span className="agRegular">Contact</span>
             </div>
-          </a>
-        <div className="absolute bottom-0 w-full h-[30%] bg-green-500 left-0 z-[-1]">
-            <div className="w-full h-full bg-gradient-to-b from-black via-transparent to-transparent absolute top-0"></div>
-            <img className="w-full h-full object-cover object-bottom" alt="marsBackground" src={marsBackground}/>
+            <div className="flex flex-col items-end text-[30px] text-white nohemiBlack">
+                <span>© {new Date().getFullYear()}</span>
+                <span>ENOSINTECH</span>
+            </div>
         </div>
-        <div className="absolute bottom-10 left-20 text-white uppercase nohemiBlack">© {new Date().getFullYear()} enosintech</div>
       </div>
     </div>
   )

@@ -3,6 +3,26 @@
 @tailwind utilities;
 
 @font-face {
+    font-family: agBlack;
+    src: url(./assets/fonts/ApfelGrotezkBlack.otf);
+}
+
+@font-face {
+    font-family: agBold;
+    src: url(./assets/fonts/ApfelGrotezkBold.otf);
+}
+
+@font-face {
+    font-family: agSemiBold;
+    src: url(./assets/fonts/ApfelGrotezkSemiBold.otf);
+}
+
+@font-face {
+    font-family: agRegular;
+    src: url(./assets/fonts/ApfelGrotezkRegular.otf);
+}
+
+@font-face {
     font-family: Nasalization;
     src: url(./assets/fonts/nasalization-rg.otf);
 }
@@ -166,6 +186,22 @@
     100% {
         box-shadow: 1px 1px 0px 4px rgba(29, 185, 84, 0.3), -1px -1px 0px 4px rgba(29, 185, 84, 0.3);
     }
+}
+
+.agBlack {
+    font-family: agBlack, sans-serif;
+}
+
+.agBold {
+    font-family: agBold, sans-serif;
+}
+
+.agSemiBold {
+    font-family: agSemiBold, sans-serif;
+}
+
+.agRegular {
+    font-family: agRegular, sans-serif;
 }
 
 .blue {
